@@ -1,0 +1,2961 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" style="overflow-x: hidden; width: 100%;" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>甘城なつき 画作分享 · 收藏</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+        (function() {
+            const stored = localStorage.getItem('theme');
+            let theme;
+            if (stored) {
+                theme = stored;
+            } else {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <style>
+        /* ===== 全局重置 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,
+        body {
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+        }
+        body {
+            font-family: 'Inter', 'Noto Serif SC', serif;
+            background-color: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            min-height: 100vh;
+            padding-top: 64px;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* ===== 主题变量 ===== */
+        :root {
+            --md-sys-color-primary: #f09a9f;
+            --md-sys-color-on-primary: #ffffff;
+            --md-sys-color-primary-container: #fce4e0;
+            --md-sys-color-on-primary-container: #5a1e24;
+            --md-sys-color-surface: #fdf8f6;
+            --md-sys-color-on-surface: #2c2422;
+            --md-sys-color-surface-variant: #f0e8e4;
+            --md-sys-color-on-surface-variant: #5a4a46;
+            --md-sys-color-outline: #d5c8c4;
+            --md-sys-color-shadow: rgba(180, 140, 130, 0.12);
+            --md-sys-color-surface-container: #faf2ef;
+            --md-sys-color-surface-container-low: #fcf6f3;
+            --nav-text-color: #2c2422;
+            --nav-border-color: rgba(200, 170, 160, 0.2);
+            --menu-bg: #fdf8f6;
+            --menu-text: #2c2422;
+            --menu-item-hover: rgba(200, 170, 160, 0.12);
+            --menu-divider: rgba(200, 170, 160, 0.15);
+            --toast-bg: rgba(253, 248, 246, 0.92);
+            --toast-text: #2c2422;
+            --toast-border: rgba(200, 170, 160, 0.15);
+            --hamburger-color: #2c2422;
+            --card-shadow: 0 4px 20px rgba(180, 140, 130, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            --overlay-bg: rgba(0, 0, 0, 0.6);
+            --favorite-color: #f09a9f;
+            --favorite-active: #e8546b;
+        }
+        [data-theme="dark"] {
+            --md-sys-color-primary: #f09a9f;
+            --md-sys-color-on-primary: #3a1e1a;
+            --md-sys-color-primary-container: #8a4a46;
+            --md-sys-color-on-primary-container: #fce4e0;
+            --md-sys-color-surface: #1a1412;
+            --md-sys-color-on-surface: #ece0dc;
+            --md-sys-color-surface-variant: #3a2e2a;
+            --md-sys-color-on-surface-variant: #c8b8b2;
+            --md-sys-color-outline: #6a5a56;
+            --md-sys-color-shadow: rgba(0, 0, 0, 0.4);
+            --md-sys-color-surface-container: #2a221e;
+            --md-sys-color-surface-container-low: #221c18;
+            --nav-text-color: #ece0dc;
+            --nav-border-color: rgba(255, 220, 210, 0.08);
+            --menu-bg: #1a1412;
+            --menu-text: #ece0dc;
+            --menu-item-hover: rgba(255, 220, 210, 0.06);
+            --menu-divider: rgba(255, 220, 210, 0.06);
+            --toast-bg: rgba(20, 16, 14, 0.92);
+            --toast-text: #ece0dc;
+            --toast-border: rgba(255, 220, 210, 0.08);
+            --hamburger-color: #ece0dc;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+            --overlay-bg: rgba(0, 0, 0, 0.8);
+            --favorite-color: #f09a9f;
+            --favorite-active: #f56a7a;
+        }
+
+        /* ===== 导航栏 ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            height: 64px;
+            background: rgba(253, 248, 246, 0.55);
+            backdrop-filter: blur(20px) saturate(1.4);
+            -webkit-backdrop-filter: blur(20px) saturate(1.4);
+            border-bottom: 1px solid var(--nav-border-color);
+            transition: background 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease, color 0.3s ease;
+            color: var(--nav-text-color);
+        }
+        [data-theme="dark"] .navbar {
+            background: rgba(20, 16, 14, 0.7);
+            backdrop-filter: blur(20px) saturate(1.2);
+            -webkit-backdrop-filter: blur(20px) saturate(1.2);
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo .logo-orb {
+            width: 32px;
+            height: 32px;
+            background: var(--md-sys-color-primary-container);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--md-sys-color-on-primary-container);
+            font-weight: 700;
+            font-size: 0.75rem;
+            font-family: 'Noto Serif SC', serif;
+        }
+        .logo .logo-text {
+            color: inherit;
+            font-weight: 700;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            background: transparent !important;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: inherit;
+            transition: background 0.25s ease, transform 0.25s ease;
+            padding: 0;
+            line-height: 1;
+        }
+        .theme-toggle:hover {
+            background: rgba(200, 170, 160, 0.12) !important;
+            transform: scale(1.05);
+        }
+        [data-theme="dark"] .theme-toggle:hover {
+            background: rgba(255, 220, 210, 0.08) !important;
+        }
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .hamburger {
+            position: relative;
+            width: 28px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+            flex-shrink: 0;
+        }
+        .hamburger span {
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2.5px;
+            background: var(--hamburger-color);
+            border-radius: 3px;
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            transform-origin: center;
+        }
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+        .hamburger span:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .hamburger span:nth-child(3) {
+            bottom: 0;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger.active span:nth-child(3) {
+            bottom: 50%;
+            transform: translateY(50%) rotate(-45deg);
+        }
+
+        /* ===== 全屏菜单 ===== */
+        .fullscreen-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 999;
+            background: var(--menu-bg);
+            padding: 80px 24px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            overflow-y: auto;
+            color: var(--menu-text);
+        }
+        .fullscreen-menu.open {
+            transform: translateY(0);
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--menu-text);
+            opacity: 0.55;
+            font-weight: 600;
+            font-size: 1.15rem;
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            position: relative;
+        }
+        .menu-item:hover,
+        .menu-item:focus,
+        .menu-item.highlight {
+            background: var(--menu-item-hover);
+            opacity: 1;
+        }
+        .menu-item:hover .icon-placeholder,
+        .menu-item:focus .icon-placeholder,
+        .menu-item.highlight .icon-placeholder {
+            background: var(--menu-item-hover);
+            transform: scale(1.04);
+        }
+        .menu-item.active {
+            opacity: 1;
+        }
+        .menu-item .icon-placeholder {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--menu-item-hover);
+            flex-shrink: 0;
+            transition: background 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            opacity: 0.7;
+        }
+        .menu-item.active .icon-placeholder {
+            opacity: 1;
+        }
+        .menu-item .item-label .title {
+            font-weight: 700;
+            color: var(--menu-text);
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        .menu-item .item-label .desc {
+            font-size: 0.75rem;
+            font-weight: 400;
+            opacity: 0.4;
+            letter-spacing: 0.02em;
+        }
+        .menu-divider {
+            height: 1px;
+            background: var(--menu-divider);
+            margin: 4px 20px;
+        }
+
+        /* 收藏徽章 */
+        .favorite-badge {
+            background: var(--favorite-active);
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 1px 8px;
+            border-radius: 20px;
+            margin-left: 8px;
+            line-height: 1.6;
+            display: inline-block;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        /* ===== Toast ===== */
+        .toast {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--toast-bg);
+            color: var(--toast-text);
+            padding: 12px 28px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 9999;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            pointer-events: none;
+            white-space: nowrap;
+            border: 1px solid var(--toast-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px rgba(180, 140, 130, 0.12);
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        .toast .toast-icon {
+            margin-right: 10px;
+        }
+
+        /* ================================================================ */
+        /* 页面入场动画 */
+        /* ================================================================ */
+        .page {
+            display: none;
+            padding: 24px 16px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+        .page.active {
+            display: block;
+            animation: pageFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes pageFadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .page .page-header {
+            opacity: 0;
+            transform: translateY(14px);
+            animation: none;
+        }
+        .page.active .page-header {
+            animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 0.12s;
+        }
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== 首页特殊 ===== */
+        #page-home {
+            display: none;
+            height: 100vh;
+            max-width: 100%;
+            padding: 0 !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+            animation: none !important;
+        }
+        #page-home.active {
+            display: block;
+            animation: none !important;
+        }
+
+        .home-hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+            padding: 0 1rem;
+            background: transparent;
+            margin-top: -64px;
+        }
+        .home-morphing-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: visible;
+        }
+        .home-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.45;
+            animation: morph 24s ease-in-out infinite alternate;
+            --ix: 0px;
+            --iy: 0px;
+            translate: var(--ix) var(--iy);
+            will-change: transform, border-radius;
+        }
+        .home-shape-1 {
+            top: -10%;
+            left: -20%;
+            width: 60%;
+            height: 60%;
+            background: #fce4e0;
+            animation-delay: 0s;
+        }
+        .home-shape-2 {
+            top: 30%;
+            right: -25%;
+            width: 50%;
+            height: 50%;
+            background: #f09a9f;
+            animation-delay: -6s;
+            opacity: 0.3;
+        }
+        .home-shape-3 {
+            bottom: -15%;
+            left: 5%;
+            width: 65%;
+            height: 65%;
+            background: #e8d8d4;
+            animation-delay: -12s;
+            opacity: 0.5;
+        }
+        [data-theme="dark"] .home-shape {
+            opacity: 0.2;
+        }
+        [data-theme="dark"] .home-shape-2 {
+            opacity: 0.15;
+        }
+        [data-theme="dark"] .home-shape-3 {
+            opacity: 0.25;
+        }
+        @media (max-width: 768px) {
+            .home-shape {
+                filter: blur(60px) !important;
+                opacity: 0.35 !important;
+            }
+            .home-shape-1 {
+                width: 75%;
+                height: 75%;
+                top: -15%;
+                left: -25%;
+            }
+            .home-shape-2 {
+                width: 65%;
+                height: 65%;
+                top: 40%;
+                right: -30%;
+                opacity: 0.2 !important;
+            }
+            .home-shape-3 {
+                width: 80%;
+                height: 80%;
+                bottom: -20%;
+                left: 0%;
+                opacity: 0.4 !important;
+            }
+        }
+        @keyframes morph {
+            0% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                transform: translate(0) rotate(0deg) scale(1);
+            }
+            33% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+                transform: translate(6%, 10%) rotate(90deg) scale(1.1);
+            }
+            66% {
+                border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+                transform: translate(-10%, -6%) rotate(180deg) scale(0.9);
+            }
+            100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                transform: translate(0) rotate(360deg) scale(1);
+            }
+        }
+        .home-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.8rem;
+            padding: 0 10px;
+        }
+        .home-title {
+            font-size: clamp(2.8rem, 10vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--md-sys-color-on-surface);
+            margin: 0;
+            font-family: 'Noto Serif SC', serif;
+        }
+        .home-content .home-title {
+            opacity: 0;
+            transform: translateY(18px);
+            animation: none;
+        }
+        .page.active .home-content .home-title {
+            animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 0.08s;
+        }
+        .home-content .home-actions {
+            opacity: 0;
+            transform: translateY(18px);
+            animation: none;
+        }
+        .page.active .home-content .home-actions {
+            animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 0.3s;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #f09a9f, #d4a0d4, #f5b8b0, #f09a9f);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 10s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .home-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 34px;
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(240, 154, 159, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 30px rgba(240, 154, 159, 0.4);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 34px;
+            background: var(--md-sys-color-surface-variant);
+            color: var(--md-sys-color-on-surface);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.25s ease, background 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            transform: scale(1.04);
+            background: var(--md-sys-color-outline);
+        }
+        .btn-primary .btn-icon {
+            width: 22px;
+            height: 22px;
+            stroke-width: 2.5;
+            flex-shrink: 0;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .page-title {
+            font-size: clamp(2rem, 6vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 6px;
+            font-family: 'Noto Serif SC', serif;
+        }
+        .page-subtitle {
+            font-size: 1rem;
+            color: var(--md-sys-color-on-surface-variant);
+            font-weight: 400;
+        }
+
+        /* ============================================================ */
+        /* 画作浏览页 — 角色分类列表 + 详情视图 */
+        /* ============================================================ */
+        .gallery-view {
+            display: none;
+        }
+        .gallery-view.active {
+            display: block;
+        }
+
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--md-sys-color-surface-container-low);
+            border-radius: 20px;
+            padding: 14px 18px;
+            border: 1px solid var(--md-sys-color-outline);
+            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            box-shadow: var(--card-shadow);
+            will-change: transform, opacity;
+            opacity: 0;
+            transform: translateX(-12px);
+            position: relative;
+        }
+        .category-item:hover {
+            border-color: var(--md-sys-color-primary);
+            transform: translateX(5px);
+            box-shadow: 0 6px 24px rgba(180, 140, 130, 0.1);
+        }
+        .page.active .category-item {
+            animation: slideInLeft 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .page.active .category-item:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+        .page.active .category-item:nth-child(2) {
+            animation-delay: 0.10s;
+        }
+        .page.active .category-item:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+        .page.active .category-item:nth-child(4) {
+            animation-delay: 0.20s;
+        }
+        .page.active .category-item:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+        .page.active .category-item:nth-child(6) {
+            animation-delay: 0.30s;
+        }
+        .page.active .category-item:nth-child(7) {
+            animation-delay: 0.35s;
+        }
+        .page.active .category-item:nth-child(8) {
+            animation-delay: 0.40s;
+        }
+        .page.active .category-item:nth-child(9) {
+            animation-delay: 0.45s;
+        }
+        .page.active .category-item:nth-child(10) {
+            animation-delay: 0.50s;
+        }
+        .page.active .category-item:nth-child(11) {
+            animation-delay: 0.55s;
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .category-item .icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+            color: #fff;
+            background: var(--md-sys-color-primary);
+        }
+        .category-item .info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+        .category-item .info .name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--md-sys-color-on-surface);
+        }
+        .category-item .info .meta {
+            font-size: 0.75rem;
+            color: var(--md-sys-color-on-surface-variant);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+        }
+        .category-item .info .meta .tag {
+            background: var(--md-sys-color-surface-variant);
+            padding: 0 10px;
+            border-radius: 6px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .category-item .action-btn {
+            padding: 6px 18px;
+            border-radius: 30px;
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+            flex-shrink: 0;
+            border: none;
+            cursor: pointer;
+        }
+        .category-item .action-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(240, 154, 159, 0.3);
+        }
+        .category-item .action-btn.download-btn {
+            background: var(--md-sys-color-primary);
+        }
+        .category-item .action-btn.browse-btn {
+            background: var(--md-sys-color-surface-variant);
+            color: var(--md-sys-color-on-surface);
+        }
+        .category-item .action-btn.browse-btn:hover {
+            background: var(--md-sys-color-outline);
+        }
+
+        /* ---- 收藏按钮 (角色列表) ---- */
+        .favorite-role-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 4px 6px;
+            transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s ease;
+            line-height: 1;
+            color: var(--md-sys-color-on-surface-variant);
+            opacity: 0.4;
+            flex-shrink: 0;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .favorite-role-btn:hover {
+            transform: scale(1.25);
+            opacity: 0.8;
+        }
+        .favorite-role-btn.active {
+            color: var(--favorite-active);
+            opacity: 1;
+            animation: heartPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes heartPop {
+            0% {
+                transform: scale(0.6);
+            }
+            40% {
+                transform: scale(1.4);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* ---- 角色动作组 ---- */
+        .category-item .actions {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+
+        .detail-view {
+            display: none;
+        }
+        .detail-view.active {
+            display: block;
+        }
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .detail-header .back-btn {
+            padding: 8px 20px;
+            border-radius: 30px;
+            background: var(--md-sys-color-surface-variant);
+            color: var(--md-sys-color-on-surface);
+            border: 1px solid var(--md-sys-color-outline);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: background 0.2s, transform 0.2s;
+            font-family: inherit;
+        }
+        .detail-header .back-btn:hover {
+            background: var(--md-sys-color-outline);
+            transform: scale(1.04);
+        }
+        .detail-header .detail-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--md-sys-color-on-surface);
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 14px;
+        }
+        .detail-grid .grid-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--md-sys-color-surface-container-low);
+            border: 1px solid var(--md-sys-color-outline);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+            box-shadow: var(--card-shadow);
+            will-change: transform, opacity;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        .detail-grid .grid-item:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(180, 140, 130, 0.15);
+            border-color: var(--md-sys-color-primary);
+        }
+        .detail-grid .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .detail-grid .grid-item:hover img {
+            transform: scale(1.05);
+        }
+        .page.active .detail-grid .grid-item {
+            animation: cardAppear 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .page.active .detail-grid .grid-item:nth-child(1) {
+            animation-delay: 0.06s;
+        }
+        .page.active .detail-grid .grid-item:nth-child(2) {
+            animation-delay: 0.10s;
+        }
+        .page.active .detail-grid .grid-item:nth-child(3) {
+            animation-delay: 0.14s;
+        }
+        .page.active .detail-grid .grid-item:nth-child(4) {
+            animation-delay: 0.18s;
+        }
+        .page.active .detail-grid .grid-item:nth-child(5) {
+            animation-delay: 0.22s;
+        }
+        .page.active .detail-grid .grid-item:nth-child(6) {
+            animation-delay: 0.26s;
+        }
+        .page.active .detail-grid .grid-item:nth-child(7) {
+            animation-delay: 0.30s;
+        }
+        .page.active .detail-grid .grid-item:nth-child(8) {
+            animation-delay: 0.34s;
+        }
+        .page.active .detail-grid .grid-item:nth-child(9) {
+            animation-delay: 0.38s;
+        }
+        .page.active .detail-grid .grid-item:nth-child(10) {
+            animation-delay: 0.42s;
+        }
+        .page.active .detail-grid .grid-item:nth-child(11) {
+            animation-delay: 0.46s;
+        }
+        .page.active .detail-grid .grid-item:nth-child(12) {
+            animation-delay: 0.50s;
+        }
+
+        @keyframes cardAppear {
+            0% {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---- 画作收藏按钮 (浮在图片上) ---- */
+        .artwork-fav-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background 0.25s ease, color 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 2;
+            line-height: 1;
+            padding: 0;
+        }
+        .artwork-fav-btn:hover {
+            transform: scale(1.2);
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .artwork-fav-btn.active {
+            color: #ff5a7a;
+            background: rgba(255, 90, 122, 0.25);
+            animation: heartPop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .artwork-fav-btn.active:hover {
+            background: rgba(255, 90, 122, 0.35);
+        }
+
+        /* ============================================================ */
+        /* 收藏页面 */
+        /* ============================================================ */
+        .favorites-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .favorites-empty .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+        .favorites-empty .empty-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--md-sys-color-on-surface);
+        }
+        .favorites-empty .empty-desc {
+            font-size: 0.95rem;
+        }
+
+        .fav-role-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        .fav-role-card {
+            background: var(--md-sys-color-surface-container-low);
+            border-radius: 16px;
+            padding: 16px 12px;
+            text-align: center;
+            border: 1px solid var(--md-sys-color-outline);
+            cursor: pointer;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease;
+            box-shadow: var(--card-shadow);
+        }
+        .fav-role-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 6px 24px rgba(180, 140, 130, 0.1);
+        }
+        .fav-role-card .fav-role-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--md-sys-color-primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0 auto 8px;
+        }
+        .fav-role-card .fav-role-name {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--md-sys-color-on-surface);
+        }
+        .fav-role-card .fav-role-count {
+            font-size: 0.7rem;
+            color: var(--md-sys-color-on-surface-variant);
+            opacity: 0.6;
+        }
+
+        .fav-artworks-section {
+            margin-top: 8px;
+        }
+        .fav-artworks-section .section-label {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px solid var(--md-sys-color-outline);
+            padding-bottom: 8px;
+        }
+        .fav-artworks-section .section-label .count-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: var(--md-sys-color-surface-variant);
+            padding: 0 12px;
+            border-radius: 20px;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .fav-artwork-group {
+            margin-bottom: 24px;
+        }
+        .fav-artwork-group .group-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .fav-artwork-group .group-title .group-icon {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: var(--md-sys-color-primary);
+            color: #fff;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 700;
+        }
+        .fav-artwork-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+        }
+        .fav-artwork-grid .fav-art-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--md-sys-color-outline);
+            cursor: pointer;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+            background: var(--md-sys-color-surface-container-low);
+        }
+        .fav-artwork-grid .fav-art-item:hover {
+            transform: scale(1.04);
+            border-color: var(--md-sys-color-primary);
+        }
+        .fav-artwork-grid .fav-art-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .fav-artwork-grid .fav-art-item .fav-art-remove {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 0.7rem;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            line-height: 1;
+        }
+        .fav-artwork-grid .fav-art-item .fav-art-remove:hover {
+            background: rgba(255, 0, 0, 0.6);
+            transform: scale(1.15);
+        }
+
+        /* ============================================================ */
+        /* Lightbox 灯箱 */
+        /* ============================================================ */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--overlay-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            padding: 20px;
+        }
+        .lightbox.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox.pure-mode .close-btn,
+        .lightbox.pure-mode .nav-btn,
+        .lightbox.pure-mode .counter,
+        .lightbox.pure-mode .lightbox-title,
+        .lightbox.pure-mode .pure-toggle {
+            opacity: 0 !important;
+            pointer-events: none !important;
+            transition: opacity 0.4s ease;
+        }
+        .lightbox.pure-mode .lightbox-image {
+            max-width: 98vw;
+            max-height: 98vh;
+            border-radius: 0;
+        }
+        .lightbox.pure-mode {
+            padding: 0;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            background: #000000;
+        }
+
+        .lightbox .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            font-size: 1.8rem;
+            cursor: pointer;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            transition: background 0.25s ease, transform 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            z-index: 10;
+        }
+        .lightbox .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.08) rotate(90deg);
+        }
+
+        .lightbox .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-size: 2.2rem;
+            cursor: pointer;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            transition: background 0.25s ease, transform 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            z-index: 10;
+        }
+        .lightbox .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-50%) scale(1.06);
+        }
+        .lightbox .nav-btn.prev {
+            left: 20px;
+        }
+        .lightbox .nav-btn.next {
+            right: 20px;
+        }
+
+        .lightbox .lightbox-image {
+            width: auto;
+            height: auto;
+            max-width: 95vw;
+            max-height: 85vh;
+            border-radius: 18px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+            transition: opacity 0.3s ease, max-width 0.4s ease, max-height 0.4s ease, border-radius 0.4s ease;
+            opacity: 0;
+            touch-action: pan-x pan-y pinch-zoom;
+            -webkit-user-select: none;
+            user-select: none;
+            position: relative;
+            z-index: 5;
+            will-change: transform, opacity;
+        }
+        .lightbox .lightbox-image.loaded {
+            opacity: 1;
+            animation: zoomIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .lightbox .lightbox-image.zoomed {
+            transform: scale(2);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox .counter {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-family: 'Inter', sans-serif;
+            z-index: 10;
+            transition: opacity 0.4s ease;
+        }
+        .lightbox .lightbox-title {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 6px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-family: 'Noto Serif SC', serif;
+            white-space: nowrap;
+            z-index: 10;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox .pure-toggle {
+            position: absolute;
+            top: 24px;
+            right: 86px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            transition: background 0.25s ease, transform 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            z-index: 10;
+        }
+        .lightbox .pure-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.08);
+        }
+
+        /* ============================================================ */
+        /* FAQ — 手风琴样式 */
+        /* ============================================================ */
+        .faq-questions-section {
+            background: var(--md-sys-color-surface-container-low);
+            border-radius: 24px;
+            padding: 28px 30px;
+            border: 1px solid var(--md-sys-color-outline);
+            box-shadow: var(--card-shadow);
+        }
+        .faq-section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--md-sys-color-on-surface);
+            text-align: center;
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .faq-item {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            border: 1px solid var(--md-sys-color-outline);
+            overflow: hidden;
+            transition: border-color 0.25s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(180, 140, 130, 0.04);
+            will-change: transform, opacity;
+            opacity: 0;
+            transform: translateY(16px);
+            margin-bottom: 12px;
+        }
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+        .faq-item:hover {
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 4px 16px rgba(180, 140, 130, 0.06);
+        }
+        .page.active .faq-item {
+            animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .page.active .faq-item:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+        .page.active .faq-item:nth-child(2) {
+            animation-delay: 0.10s;
+        }
+        .page.active .faq-item:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+        .page.active .faq-item:nth-child(4) {
+            animation-delay: 0.20s;
+        }
+        .page.active .faq-item:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 22px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--md-sys-color-on-surface);
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s ease;
+            gap: 12px;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+            line-height: 1.5;
+        }
+        .faq-question:hover {
+            background: var(--md-sys-color-surface-variant);
+        }
+        .faq-question .faq-icon {
+            flex-shrink: 0;
+            font-size: 1.1rem;
+            opacity: 0.4;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .faq-item.open .faq-question .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            padding: 0 22px;
+            color: var(--md-sys-color-on-surface-variant);
+            line-height: 2;
+            font-size: 0.95rem;
+            transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, padding 0.4s ease;
+            will-change: max-height, opacity;
+        }
+        .faq-item.open .faq-answer {
+            opacity: 1;
+            padding: 0 22px 22px 22px;
+        }
+        .faq-answer strong {
+            color: var(--md-sys-color-on-surface);
+        }
+        .faq-answer a {
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+        }
+
+        /* ============================================================ */
+        /* 更新日志 */
+        /* ============================================================ */
+        .changelog-container {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .changelog-card {
+            background: var(--md-sys-color-surface-container-low);
+            border-radius: 20px;
+            padding: 18px 22px;
+            border: 1px solid var(--md-sys-color-outline);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease;
+            box-shadow: var(--card-shadow);
+            will-change: transform, opacity;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        .changelog-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 6px 24px rgba(180, 140, 130, 0.08);
+        }
+        .page.active .changelog-card {
+            animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .page.active .changelog-card:nth-child(1) {
+            animation-delay: 0.08s;
+        }
+        .page.active .changelog-card:nth-child(2) {
+            animation-delay: 0.16s;
+        }
+        .page.active .changelog-card:nth-child(3) {
+            animation-delay: 0.24s;
+        }
+        .page.active .changelog-card:nth-child(4) {
+            animation-delay: 0.32s;
+        }
+        .page.active .changelog-card:nth-child(5) {
+            animation-delay: 0.40s;
+        }
+
+        .changelog-header {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            margin-bottom: 10px;
+        }
+        .version-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .version-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--md-sys-color-on-surface);
+        }
+        .version-badge {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            font-size: 0.6rem;
+            padding: 2px 12px;
+            border-radius: 100px;
+            font-weight: 600;
+        }
+        .changelog-date {
+            font-size: 0.75rem;
+            color: var(--md-sys-color-on-surface-variant);
+            font-weight: 500;
+        }
+        .changes-list {
+            padding: 10px 16px;
+            background: var(--md-sys-color-surface);
+            border-radius: 14px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .changes-list li {
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .changes-list li::before {
+            content: "?";
+            position: absolute;
+            left: 0;
+            color: var(--md-sys-color-primary);
+            font-weight: 700;
+        }
+
+        /* ============================================================ */
+        /* 关于 — 只保留 Twitter 链接 */
+        /* ============================================================ */
+        .about-content {
+            background: var(--md-sys-color-surface-container-low);
+            border-radius: 24px;
+            padding: 28px;
+            border: 1px solid var(--md-sys-color-outline);
+            box-shadow: var(--card-shadow);
+        }
+        .about-content p {
+            line-height: 2;
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            will-change: transform, opacity;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        .page.active .about-content p {
+            animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .page.active .about-content p:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+        .page.active .about-content p:nth-child(2) {
+            animation-delay: 0.10s;
+        }
+        .page.active .about-content p:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .about-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid var(--md-sys-color-outline);
+            will-change: transform, opacity;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        .page.active .about-links {
+            animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 0.20s;
+        }
+        .about-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 22px;
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+        }
+        .about-links a:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 16px rgba(240, 154, 159, 0.3);
+        }
+        .about-links a.secondary {
+            background: var(--md-sys-color-surface-variant);
+            color: var(--md-sys-color-on-surface);
+        }
+        .about-links a.secondary:hover {
+            background: var(--md-sys-color-outline);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 16px 32px;
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--md-sys-color-outline);
+            margin-top: 12px;
+        }
+        .footer .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 18px;
+            margin-top: 8px;
+        }
+        .footer .footer-links a {
+            color: var(--md-sys-color-on-surface-variant);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .footer .footer-links a:hover {
+            color: var(--md-sys-color-primary);
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 600px) {
+            .detail-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .lightbox .nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.6rem;
+            }
+            .lightbox .nav-btn.prev {
+                left: 8px;
+            }
+            .lightbox .nav-btn.next {
+                right: 8px;
+            }
+            .lightbox .close-btn {
+                top: 12px;
+                right: 14px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+            .lightbox .pure-toggle {
+                top: 12px;
+                right: 64px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            .lightbox .lightbox-title {
+                font-size: 0.8rem;
+                bottom: 72px;
+                white-space: normal;
+                max-width: 80%;
+            }
+            .lightbox .lightbox-image {
+                max-width: 98vw;
+                max-height: 80vh;
+            }
+            .category-item {
+                padding: 12px 14px;
+            }
+            .faq-questions-section {
+                padding: 18px 16px;
+            }
+            .faq-question {
+                padding: 14px 16px;
+                font-size: 0.9rem;
+            }
+            .faq-answer {
+                padding: 0 16px;
+                font-size: 0.88rem;
+                line-height: 1.9;
+            }
+            .faq-item.open .faq-answer {
+                padding: 0 16px 18px 16px;
+            }
+            .fav-role-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            }
+            .fav-artwork-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            }
+            .artwork-fav-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 0.95rem;
+                top: 4px;
+                right: 4px;
+            }
+        }
+        @media (max-width: 400px) {
+            .detail-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .fav-artwork-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== 导航栏 ===== -->
+    <header class="navbar" id="navbar">
+        <a href="#" class="logo" id="logoHome">
+            <span class="logo-orb">甘</span>
+            <span class="logo-text">甘城なつき 画集</span>
+        </a>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                <svg id="themeIcon" viewBox="0 0 24 24">
+                    <path id="moonPath" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    <path id="sunPath" style="display:none;" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
+                </svg>
+            </button>
+            <button class="hamburger" id="hamburgerBtn" aria-label="切换菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== 全屏菜单 ===== -->
+    <nav class="fullscreen-menu" id="fullscreenMenu" role="navigation">
+        <a href="#" class="menu-item active" data-page="home">
+            <span class="icon-placeholder">?</span>
+            <span class="item-label">
+                <div class="title">首页</div>
+                <div class="desc">回到主页</div>
+            </span>
+        </a>
+        <div class="menu-divider"></div>
+        <a href="#" class="menu-item" data-page="gallery">
+            <span class="icon-placeholder">?</span>
+            <span class="item-label">
+                <div class="title">画作浏览</div>
+                <div class="desc">按角色查看画作</div>
+            </span>
+        </a>
+        <div class="menu-divider"></div>
+        <a href="#" class="menu-item" data-page="category">
+            <span class="icon-placeholder">?</span>
+            <span class="item-label">
+                <div class="title">画作下载</div>
+                <div class="desc">按角色下载合集</div>
+            </span>
+        </a>
+        <div class="menu-divider"></div>
+        <!-- ★ 新增「我的收藏」菜单项 -->
+        <a href="#" class="menu-item" data-page="favorites">
+            <span class="icon-placeholder">?</span>
+            <span class="item-label">
+                <div class="title">我的收藏 <span class="favorite-badge" id="menuFavBadge">0</span></div>
+                <div class="desc">收藏的角色与画作</div>
+            </span>
+        </a>
+        <div class="menu-divider"></div>
+        <a href="#" class="menu-item" data-page="faq">
+            <span class="icon-placeholder">?</span>
+            <span class="item-label">
+                <div class="title">常见问题</div>
+                <div class="desc">关于画作分享</div>
+            </span>
+        </a>
+        <div class="menu-divider"></div>
+        <a href="#" class="menu-item" data-page="changelog">
+            <span class="icon-placeholder">≡</span>
+            <span class="item-label">
+                <div class="title">更新日志</div>
+                <div class="desc">画作更新记录</div>
+            </span>
+        </a>
+        <div class="menu-divider"></div>
+        <a href="#" class="menu-item" data-page="about">
+            <span class="icon-placeholder">?</span>
+            <span class="item-label">
+                <div class="title">关于</div>
+                <div class="desc">了解甘城なつき</div>
+            </span>
+        </a>
+    </nav>
+
+    <!-- ===== Toast ===== -->
+    <div class="toast" id="toast">
+        <span class="toast-icon" id="toastIcon">??</span>
+        <span id="toastMessage">Dark mode activated!</span>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- 页面1: 首页 -->
+    <!-- ============================================================ -->
+    <section class="page active" id="page-home">
+        <div class="home-hero">
+            <div class="home-morphing-bg" id="homeMorphingBg">
+                <div class="home-shape home-shape-1"></div>
+                <div class="home-shape home-shape-2"></div>
+                <div class="home-shape home-shape-3"></div>
+            </div>
+            <div class="home-content">
+                <h1 class="home-title">
+                    甘城なつき<br />
+                    <span class="gradient-text">画作分享</span>
+                </h1>
+                <div class="home-actions">
+                    <a href="#gallery" class="btn-primary" data-page="gallery">
+                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        浏览画作
+                    </a>
+                    <a href="#about" class="btn-secondary" data-page="about">关于作者</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 页面2: 画作浏览 -->
+    <!-- ============================================================ -->
+    <section class="page" id="page-gallery">
+        <div class="page-header">
+            <h1 class="page-title">画作浏览</h1>
+            <p class="page-subtitle">按角色分类浏览 · 点击「浏览」查看画作</p>
+        </div>
+        <div class="gallery-view active" id="galleryListView">
+            <div class="category-list" id="galleryCategoryList"></div>
+        </div>
+        <div class="detail-view" id="galleryDetailView">
+            <div class="detail-header">
+                <button class="back-btn" id="galleryBackBtn">← 返回</button>
+                <span class="detail-title" id="galleryDetailTitle">角色名称</span>
+            </div>
+            <div class="detail-grid" id="galleryDetailGrid"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 页面3: 画作下载 -->
+    <!-- ============================================================ -->
+    <section class="page" id="page-category">
+        <div class="page-header">
+            <h1 class="page-title">画作下载</h1>
+            <p class="page-subtitle">按角色下载画作合集</p>
+        </div>
+        <div class="category-section-title" style="font-weight:700;font-size:1rem;margin-bottom:14px;color:var(--md-sys-color-on-surface);display:flex;justify-content:space-between;align-items:center;">
+            角色分类
+            <span class="badge" id="roleCountBadge" style="font-weight:400;font-size:0.8rem;color:var(--md-sys-color-on-surface-variant);">0 个角色</span>
+        </div>
+        <div class="category-list" id="downloadCategoryList"></div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 页面4: 我的收藏 (新增) -->
+    <!-- ============================================================ -->
+    <section class="page" id="page-favorites">
+        <div class="page-header">
+            <h1 class="page-title">? 我的收藏</h1>
+            <p class="page-subtitle" id="favSubtitle">收藏的角色与画作</p>
+        </div>
+        <div id="favoritesContainer">
+            <!-- 由 JS 动态渲染 -->
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 页面5: FAQ -->
+    <!-- ============================================================ -->
+    <section class="page" id="page-faq">
+        <div class="page-header">
+            <h1 class="page-title">常见问题</h1>
+            <p class="page-subtitle">关于甘城なつき画作分享</p>
+        </div>
+        <div class="faq-questions-section">
+            <h2 class="faq-section-title">常见问题解答</h2>
+            <div class="faq-accordion" id="faqAccordion">
+                <div class="faq-item"><button class="faq-question" data-target="faq1"><span>这些画作的作者是谁？</span><span class="faq-icon">?</span></button><div class="faq-answer" id="faq1">全部由 <strong>甘城なつき（Natsuki Amagi）</strong> 创作。她是日本插画师，擅长绘制可爱风格的角色，尤其以猫娘角色闻名。</div></div>
+                <div class="faq-item"><button class="faq-question" data-target="faq2"><span>这些画作可以免费下载吗？</span><span class="faq-icon">?</span></button><div class="faq-answer" id="faq2">本网站分享的是作者公开发布的作品。部分画作来自作者的 <strong>Fantia</strong> 等付费平台，仅供个人欣赏参考，请勿用于商业用途。</div></div>
+                <div class="faq-item"><button class="faq-question" data-target="faq3"><span>如何下载每个角色的完整画集？</span><span class="faq-icon">?</span></button><div class="faq-answer" id="faq3">进入「画作下载」页面，点击每个角色右侧的 <strong>「下载」</strong> 按钮，即可获取该角色的完整画作合集。</div></div>
+                <div class="faq-item"><button class="faq-question" data-target="faq4"><span>画作会持续更新吗？</span><span class="faq-icon">?</span></button><div class="faq-answer" id="faq4">是的！作者会在 <strong>Twitter</strong> 持续发布新作品，本站也会定期同步更新。最新更新请查看「更新日志」页面。</div></div>
+                <div class="faq-item"><button class="faq-question" data-target="faq5"><span>我可以转载这些画作吗？</span><span class="faq-icon">?</span></button><div class="faq-answer" id="faq5">请遵守作者的版权声明。个人使用、二次创作（需注明作者）是可以的，但 <strong>禁止商业转载和去除水印</strong>。推荐直接关注作者的官方账号。</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 页面6: 更新日志 -->
+    <!-- ============================================================ -->
+    <section class="page" id="page-changelog">
+        <div class="page-header">
+            <h1 class="page-title">更新日志</h1>
+            <p class="page-subtitle">画作更新记录</p>
+        </div>
+        <div class="changelog-container">
+            <div class="changelog-card">
+                <div class="changelog-header">
+                    <div class="version-group">
+                        <span class="version-title">新增收藏功能 ?</span>
+                        <span class="version-badge">新增</span>
+                    </div>
+                    <span class="changelog-date">2026年8月22日</span>
+                </div>
+                <ul class="changes-list">
+                    <li>新增「我的收藏」页面，集中管理收藏的角色与画作</li>
+                    <li>角色列表支持收藏角色（? 按钮）</li>
+                    <li>画作详情页支持收藏单幅画作（浮爱心按钮）</li>
+                    <li>收藏数据自动保存在浏览器本地</li>
+                </ul>
+            </div>
+            <div class="changelog-card">
+                <div class="changelog-header">
+                    <div class="version-group">
+                        <span class="version-title">精简角色列表 & 下载链接配置</span>
+                        <span class="version-badge">优化</span>
+                    </div>
+                    <span class="changelog-date">2026年8月22日</span>
+                </div>
+                <ul class="changes-list">
+                    <li>点击下载按钮可跳转到你的分享链接</li>
+                </ul>
+            </div>
+            <div class="changelog-card">
+                <div class="changelog-header">
+                    <div class="version-group">
+                        <span class="version-title">画作浏览改版 & FAQ 优化</span>
+                        <span class="version-badge">优化</span>
+                    </div>
+                    <span class="changelog-date">2026年8月22日</span>
+                </div>
+                <ul class="changes-list">
+                    <li>画作浏览页改为「角色分类列表 → 画作网格」双层结构</li>
+                    <li>FAQ 手风琴内边距和行高增加，阅读更舒适</li>
+                </ul>
+            </div>
+            <div class="changelog-card">
+                <div class="changelog-header">
+                    <div class="version-group">
+                        <span class="version-title">全屏纯净模式 & 交错动画</span>
+                        <span class="version-badge">优化</span>
+                    </div>
+                    <span class="changelog-date">2026年8月21日</span>
+                </div>
+                <ul class="changes-list">
+                    <li>画作预览新增「全屏纯净模式」，沉浸欣赏</li>
+                    <li>各页面交错动画统一调优</li>
+                </ul>
+            </div>
+            <div class="changelog-card">
+                <div class="changelog-header">
+                    <div class="version-group">
+                        <span class="version-title">网站上线</span>
+                        <span class="version-badge">启动</span>
+                    </div>
+                    <span class="changelog-date">2026年5月7日</span>
+                </div>
+                <ul class="changes-list">
+                    <li>甘城なつき 画作分享站正式上线</li>
+                    <li>支持暗色/亮色主题切换</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 页面7: 关于 -->
+    <!-- ============================================================ -->
+    <section class="page" id="page-about">
+        <div class="page-header">
+            <h1 class="page-title">关于甘城なつき</h1>
+            <p class="page-subtitle">非官方画作分享站</p>
+        </div>
+        <div class="about-content">
+            <p>
+                <strong>甘城なつき（Natsuki Amagi）</strong> 是日本插画师，以其独特的可爱风格和精致的角色设计而闻名。
+            </p>
+            <p>
+                她的作品以猫娘角色为标志，色彩柔和温暖，充满童话般的梦幻感。她活跃于 <strong>Twitter</strong> 平台，持续发布高质量插画作品。
+            </p>
+            <p>
+                本站是一个<span style="color: var(--md-sys-color-primary); font-weight: 600;">非官方</span>的甘城なつき画作分享站，旨在让更多喜欢她作品的朋友能够方便地浏览和收藏。
+            </p>
+            <div class="about-links">
+                <a href="https://twitter.com/amaginatsu" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Lightbox 灯箱 ===== -->
+    <div class="lightbox" id="lightbox">
+        <button class="close-btn" id="lightboxClose">?</button>
+        <button class="pure-toggle" id="pureToggle" title="全屏纯净模式">?</button>
+        <button class="nav-btn prev" id="lightboxPrev">?</button>
+        <button class="nav-btn next" id="lightboxNext">?</button>
+        <img class="lightbox-image" id="lightboxImage" src="" alt="预览" />
+        <span class="counter" id="lightboxCounter">1 / 1</span>
+        <span class="lightbox-title" id="lightboxTitle"></span>
+    </div>
+
+    <!-- ===== 底部 ===== -->
+    <footer class="footer">
+        <div>&copy; 2026 甘城なつき 画集 · 非官方 · 仅供个人欣赏</div>
+        <div class="footer-links">
+            <a href="https://twitter.com/amaginatsu" target="_blank">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // ================================================================
+        // ★★★ 下载链接配置 ★★★
+        // ================================================================
+        const downloadLinks = {
+            coco: '',
+            lolo: '',
+            nacho: '',
+            vtuber: '',
+            usa: '',
+            sui: '',
+            meina: '',
+            riru: '',
+            gura: '',
+            nekomata: '',
+            matsuri: '',
+        };
+
+        // ================================================================
+        // 角色数据
+        // ================================================================
+        const roleData = [
+            { id: 'coco', name: 'coco 粉毛粉眼', icon: '粉', size: '16.2 MB', date: '2024/5/9' },
+            { id: 'lolo', name: 'lolo 橙毛红眼', icon: '橙', size: '13.9 MB', date: '2024/5/9' },
+            { id: 'nacho', name: 'nacho 甘城猫猫', icon: '猫', size: '282.8 MB', date: '2024/5/9' },
+            { id: 'vtuber', name: 'vtuber', icon: 'V', size: '93.0 MB', date: '2024/5/9' },
+            { id: 'usa', name: 'うさ 白发紫瞳双马尾', icon: '兔', size: '4.2 MB', date: '2024/5/8' },
+            { id: 'sui', name: '翠 绿毛绿眼', icon: '翠', size: '89.7 MB', date: '2024/5/9' },
+            { id: 'meina', name: '美娜 白毛红眼', icon: '美', size: '68.1 MB', date: '2024/5/9' },
+            { id: 'riru', name: 'りる 粉毛绿眼', icon: '绿', size: '142.6 MB', date: '2024/5/9' },
+            { id: 'gura', name: '古拉', icon: '古', size: '233.5 MB', date: '2024/5/9' },
+            { id: 'nekomata', name: '猫羽季', icon: '猫', size: '376.5 MB', date: '2024/5/9' },
+            { id: 'matsuri', name: '茉莉 黑毛红黄眼', icon: '茉', size: '92.7 MB', date: '2024/5/9' },
+        ];
+
+        // ================================================================
+        // 收藏管理
+        // ================================================================
+        const FAV_STORAGE_KEY = 'natsuki_favorites';
+
+        function getFavorites() {
+            try {
+                const raw = localStorage.getItem(FAV_STORAGE_KEY);
+                if (raw) {
+                    const data = JSON.parse(raw);
+                    // 确保数据结构完整
+                    if (typeof data.roles === 'undefined') data.roles = [];
+                    if (typeof data.artworks === 'undefined') data.artworks = {};
+                    return data;
+                }
+            } catch (e) { /* ignore */ }
+            return { roles: [], artworks: {} };
+        }
+
+        function saveFavorites(data) {
+            localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify(data));
+        }
+
+        // ---- 角色收藏 ----
+        function toggleRoleFavorite(roleId) {
+            const data = getFavorites();
+            const idx = data.roles.indexOf(roleId);
+            if (idx > -1) {
+                data.roles.splice(idx, 1);
+            } else {
+                data.roles.push(roleId);
+            }
+            saveFavorites(data);
+            updateAllFavUI();
+            return data.roles.indexOf(roleId) > -1;
+        }
+
+        function isRoleFavorited(roleId) {
+            const data = getFavorites();
+            return data.roles.includes(roleId);
+        }
+
+        // ---- 画作收藏 ----
+        function toggleArtworkFavorite(roleId, artworkId) {
+            const data = getFavorites();
+            if (!data.artworks[roleId]) data.artworks[roleId] = [];
+            const idx = data.artworks[roleId].indexOf(artworkId);
+            if (idx > -1) {
+                data.artworks[roleId].splice(idx, 1);
+                if (data.artworks[roleId].length === 0) {
+                    delete data.artworks[roleId];
+                }
+            } else {
+                data.artworks[roleId].push(artworkId);
+            }
+            saveFavorites(data);
+            updateAllFavUI();
+            return idx === -1;
+        }
+
+        function isArtworkFavorited(roleId, artworkId) {
+            const data = getFavorites();
+            return data.artworks[roleId] && data.artworks[roleId].includes(artworkId);
+        }
+
+        function getFavoriteArtworks(roleId) {
+            const data = getFavorites();
+            return data.artworks[roleId] || [];
+        }
+
+        function getTotalFavorites() {
+            const data = getFavorites();
+            let count = data.roles.length;
+            for (const key in data.artworks) {
+                count += data.artworks[key].length;
+            }
+            return count;
+        }
+
+        // ---- UI 更新 ----
+        function updateAllFavUI() {
+            // 更新菜单徽章
+            const total = getTotalFavorites();
+            const badge = document.getElementById('menuFavBadge');
+            if (badge) {
+                badge.textContent = total;
+                badge.style.display = total > 0 ? 'inline-block' : 'none';
+            }
+
+            // 更新所有角色收藏按钮
+            document.querySelectorAll('.favorite-role-btn').forEach(btn => {
+                const roleId = btn.dataset.role;
+                if (roleId) {
+                    const fav = isRoleFavorited(roleId);
+                    btn.classList.toggle('active', fav);
+                    btn.textContent = fav ? '?' : '?';
+                }
+            });
+
+            // 更新所有画作收藏按钮
+            document.querySelectorAll('.artwork-fav-btn').forEach(btn => {
+                const roleId = btn.dataset.role;
+                const artId = btn.dataset.artid;
+                if (roleId && artId) {
+                    const fav = isArtworkFavorited(roleId, artId);
+                    btn.classList.toggle('active', fav);
+                    btn.textContent = fav ? '?' : '?';
+                }
+            });
+
+            // 如果收藏页面正在显示，重新渲染
+            const favPage = document.getElementById('page-favorites');
+            if (favPage && favPage.classList.contains('active')) {
+                renderFavoritesPage();
+            }
+        }
+
+        // ================================================================
+        // 渲染收藏页面
+        // ================================================================
+        function renderFavoritesPage() {
+            const container = document.getElementById('favoritesContainer');
+            const data = getFavorites();
+            const total = getTotalFavorites();
+            const subtitle = document.getElementById('favSubtitle');
+
+            if (total === 0) {
+                container.innerHTML = `
+                    <div class="favorites-empty">
+                        <div class="empty-icon">?</div>
+                        <div class="empty-title">还没有收藏</div>
+                        <div class="empty-desc">去「画作浏览」页面收藏你喜欢的角色和画作吧 ?</div>
+                    </div>
+                `;
+                subtitle.textContent = '还没有收藏内容';
+                return;
+            }
+
+            subtitle.textContent = `共收藏了 ${total} 项内容`;
+
+            let html = '';
+
+            // ---- 收藏的角色 ----
+            if (data.roles.length > 0) {
+                html += `<div style="margin-bottom:28px;">`;
+                html += `<div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;border-bottom:2px solid var(--md-sys-color-outline);padding-bottom:8px;">
+                            <span style="font-weight:700;font-size:1.05rem;color:var(--md-sys-color-on-surface);">? 收藏的角色</span>
+                            <span style="font-size:0.7rem;font-weight:600;background:var(--md-sys-color-surface-variant);padding:0 12px;border-radius:20px;color:var(--md-sys-color-on-surface-variant);">${data.roles.length}</span>
+                        </div>`;
+                html += `<div class="fav-role-grid">`;
+                data.roles.forEach(roleId => {
+                    const role = roleData.find(r => r.id === roleId);
+                    if (!role) return;
+                    const artCount = (data.artworks[roleId] || []).length;
+                    html += `
+                        <div class="fav-role-card" data-role="${roleId}">
+                            <div class="fav-role-icon">${role.icon}</div>
+                            <div class="fav-role-name">${role.name}</div>
+                            <div class="fav-role-count">${artCount} 幅收藏</div>
+                        </div>
+                    `;
+                });
+                html += `</div></div>`;
+            }
+
+            // ---- 收藏的画作 ----
+            const hasArtworks = Object.keys(data.artworks).some(key => data.artworks[key].length > 0);
+            if (hasArtworks) {
+                html += `<div class="fav-artworks-section">`;
+                html += `<div class="section-label">
+                            ?? 收藏的画作
+                            <span class="count-badge">${Object.values(data.artworks).reduce((sum, arr) => sum + arr.length, 0)}</span>
+                        </div>`;
+
+                // 按角色分组展示
+                for (const roleId of Object.keys(data.artworks)) {
+                    const artIds = data.artworks[roleId];
+                    if (artIds.length === 0) continue;
+                    const role = roleData.find(r => r.id === roleId);
+                    if (!role) continue;
+
+                    html += `<div class="fav-artwork-group">`;
+                    html += `<div class="group-title">
+                                <span class="group-icon">${role.icon}</span>
+                                ${role.name}
+                                <span style="font-weight:400;font-size:0.7rem;color:var(--md-sys-color-on-surface-variant);">${artIds.length} 幅</span>
+                            </div>`;
+                    html += `<div class="fav-artwork-grid">`;
+
+                    // 按顺序展示收藏的画作
+                    const sorted = artIds.slice().sort((a, b) => {
+                        const ia = parseInt(a.split('-')[1] || 0);
+                        const ib = parseInt(b.split('-')[1] || 0);
+                        return ia - ib;
+                    });
+
+                    sorted.forEach(artId => {
+                        // 生成图片URL
+                        const seed = artId;
+                        const imgSrc = 'https://picsum.photos/seed/' + seed + '/400/400';
+                        html += `
+                            <div class="fav-art-item" data-role="${roleId}" data-artid="${artId}">
+                                <img src="${imgSrc}" alt="${role.name}" loading="lazy" />
+                                <button class="fav-art-remove" data-role="${roleId}" data-artid="${artId}" title="取消收藏">?</button>
+                            </div>
+                        `;
+                    });
+
+                    html += `</div></div>`;
+                }
+                html += `</div>`;
+            }
+
+            container.innerHTML = html;
+
+            // ---- 事件绑定 ----
+            // 点击角色卡片跳转
+            container.querySelectorAll('.fav-role-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const roleId = this.dataset.role;
+                    // 切换到画作浏览页并显示该角色详情
+                    switchPage('gallery');
+                    setTimeout(() => {
+                        showRoleDetail(roleId);
+                    }, 100);
+                });
+            });
+
+            // 点击画作打开灯箱
+            container.querySelectorAll('.fav-art-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if (e.target.closest('.fav-art-remove')) return;
+                    const roleId = this.dataset.role;
+                    const artId = this.dataset.artid;
+                    const role = roleData.find(r => r.id === roleId);
+                    if (!role) return;
+                    // 构建该角色的所有画作列表，并定位到当前画作
+                    const allArtIds = getFavoriteArtworks(roleId).slice().sort((a, b) => {
+                        const ia = parseInt(a.split('-')[1] || 0);
+                        const ib = parseInt(b.split('-')[1] || 0);
+                        return ia - ib;
+                    });
+                    const index = allArtIds.indexOf(artId);
+                    if (index === -1) return;
+                    // 使用收藏画作列表打开灯箱
+                    const images = allArtIds.map(id => ({
+                        src: 'https://picsum.photos/seed/' + id + '/500/500',
+                        title: role.name + ' · 画作 ' + (id.split('-')[1] || '')
+                    }));
+                    currentGalleryImages = images;
+                    openLightboxFromGallery(index);
+                });
+            });
+
+            // 取消收藏画作
+            container.querySelectorAll('.fav-art-remove').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const roleId = this.dataset.role;
+                    const artId = this.dataset.artid;
+                    if (roleId && artId) {
+                        toggleArtworkFavorite(roleId, artId);
+                        showToast('已取消收藏', '?');
+                    }
+                });
+            });
+        }
+
+        // ================================================================
+        // 1. 生成画作浏览列表 (带收藏按钮)
+        // ================================================================
+        const galleryList = document.getElementById('galleryCategoryList');
+        galleryList.innerHTML = roleData.map((role, idx) => `
+            <div class="category-item" data-role="${role.id}" style="animation-delay: ${0.05 + idx * 0.05}s">
+                <div class="icon-box">${role.icon}</div>
+                <div class="info">
+                    <span class="name">${role.name}</span>
+                    <span class="meta">
+                        <span class="tag">${role.size}</span>
+                        <span>${role.date}</span>
+                    </span>
+                </div>
+                <div class="actions">
+                    <button class="favorite-role-btn" data-role="${role.id}" title="收藏角色">?</button>
+                    <button class="action-btn browse-btn" data-role="${role.id}">浏览</button>
+                </div>
+            </div>
+        `).join('');
+
+        // ================================================================
+        // 2. 生成画作下载列表 (带收藏按钮)
+        // ================================================================
+        const downloadList = document.getElementById('downloadCategoryList');
+        downloadList.innerHTML = roleData.map((role, idx) => `
+            <div class="category-item" data-role="${role.id}" style="animation-delay: ${0.05 + idx * 0.05}s">
+                <div class="icon-box">${role.icon}</div>
+                <div class="info">
+                    <span class="name">${role.name}</span>
+                    <span class="meta">
+                        <span class="tag">${role.size}</span>
+                        <span>${role.date}</span>
+                    </span>
+                </div>
+                <div class="actions">
+                    <button class="favorite-role-btn" data-role="${role.id}" title="收藏角色">?</button>
+                    <button class="action-btn download-btn" data-role="${role.id}">下载</button>
+                </div>
+            </div>
+        `).join('');
+
+        // ================================================================
+        // 3. 更新角色数量徽章
+        // ================================================================
+        document.getElementById('roleCountBadge').textContent = roleData.length + ' 个角色';
+
+        // ================================================================
+        // 4. 画廊浏览功能
+        // ================================================================
+        const listView = document.getElementById('galleryListView');
+        const detailView = document.getElementById('galleryDetailView');
+        const detailGrid = document.getElementById('galleryDetailGrid');
+        const detailTitle = document.getElementById('galleryDetailTitle');
+        const backBtn = document.getElementById('galleryBackBtn');
+
+        let currentRoleId = null;
+        let currentGalleryImages = [];
+
+        function getRoleImages(roleId, count = 8) {
+            const seeds = [];
+            for (let i = 1; i <= count; i++) {
+                seeds.push(roleId + '-' + i);
+            }
+            return seeds.map(seed => ({
+                id: seed,
+                src: 'https://picsum.photos/seed/' + seed + '/500/500',
+                title: roleData.find(r => r.id === roleId)?.name || roleId + ' 画作'
+            }));
+        }
+
+        function showRoleDetail(roleId) {
+            const role = roleData.find(r => r.id === roleId);
+            if (!role) return;
+            currentRoleId = roleId;
+            detailTitle.textContent = role.name;
+
+            const images = getRoleImages(roleId, 8);
+            currentGalleryImages = images;
+
+            detailGrid.innerHTML = images.map((img, idx) => {
+                const artId = img.id;
+                const isFav = isArtworkFavorited(roleId, artId);
+                return `
+                    <div class="grid-item" data-index="${idx}" data-role="${roleId}" data-artid="${artId}">
+                        <img src="${img.src}" alt="${img.title}" loading="lazy" />
+                        <button class="artwork-fav-btn ${isFav ? 'active' : ''}" data-role="${roleId}" data-artid="${artId}" title="收藏画作">${isFav ? '?' : '?'}</button>
+                    </div>
+                `;
+            }).join('');
+
+            listView.classList.remove('active');
+            detailView.classList.add('active');
+
+            // ---- 画作收藏按钮事件 ----
+            detailGrid.querySelectorAll('.artwork-fav-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const roleId = this.dataset.role;
+                    const artId = this.dataset.artid;
+                    if (roleId && artId) {
+                        const nowFav = toggleArtworkFavorite(roleId, artId);
+                        showToast(nowFav ? '已收藏画作 ?' : '已取消收藏 ?');
+                        // 更新按钮状态
+                        this.classList.toggle('active', nowFav);
+                        this.textContent = nowFav ? '?' : '?';
+                        // 更新收藏徽章
+                        updateAllFavUI();
+                    }
+                });
+            });
+
+            // ---- 点击画作打开灯箱 ----
+            detailGrid.querySelectorAll('.grid-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if (e.target.closest('.artwork-fav-btn')) return;
+                    const idx = parseInt(this.dataset.index);
+                    const imgData = currentGalleryImages[idx];
+                    if (imgData) {
+                        openLightboxFromGallery(idx);
+                    }
+                });
+            });
+
+            // 更新所有收藏UI状态
+            updateAllFavUI();
+        }
+
+        function showGalleryList() {
+            listView.classList.add('active');
+            detailView.classList.remove('active');
+            currentRoleId = null;
+        }
+
+        // ---- 浏览按钮 ----
+        document.querySelectorAll('#galleryCategoryList .browse-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const roleId = this.dataset.role;
+                showRoleDetail(roleId);
+            });
+        });
+        document.querySelectorAll('#galleryCategoryList .category-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const roleId = this.dataset.role;
+                showRoleDetail(roleId);
+            });
+        });
+
+        backBtn.addEventListener('click', showGalleryList);
+
+        // ================================================================
+        // 5. 下载功能
+        // ================================================================
+        document.querySelectorAll('#downloadCategoryList .download-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const roleId = this.dataset.role;
+                const link = downloadLinks[roleId];
+                if (link && link.trim() !== '') {
+                    window.open(link, '_blank');
+                } else {
+                    showToast('该角色暂无下载链接', '??');
+                }
+            });
+        });
+
+        // ================================================================
+        // 6. 角色收藏按钮事件 (两个列表统一处理)
+        // ================================================================
+        document.querySelectorAll('.favorite-role-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const roleId = this.dataset.role;
+                if (roleId) {
+                    const nowFav = toggleRoleFavorite(roleId);
+                    showToast(nowFav ? '已收藏角色 ?' : '已取消收藏 ?');
+                    // 更新所有UI
+                    updateAllFavUI();
+                }
+            });
+        });
+
+        // ================================================================
+        // 7. Lightbox 逻辑
+        // ================================================================
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const closeBtn = document.getElementById('lightboxClose');
+        const prevBtn = document.getElementById('lightboxPrev');
+        const nextBtn = document.getElementById('lightboxNext');
+        const pureToggle = document.getElementById('pureToggle');
+
+        let currentLightboxIndex = 0;
+        let isZoomed = false;
+        let isPureMode = false;
+
+        function openLightboxFromGallery(index) {
+            if (!currentGalleryImages || currentGalleryImages.length === 0) return;
+            currentLightboxIndex = index;
+            const img = currentGalleryImages[index];
+            lightboxImage.src = img.src;
+            lightboxImage.alt = img.title;
+            lightboxTitle.textContent = img.title;
+            lightboxCounter.textContent = `${index + 1} / ${currentGalleryImages.length}`;
+            lightboxImage.classList.remove('loaded', 'zoomed');
+            isZoomed = false;
+            if (isPureMode) exitPureMode();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            lightboxImage.onload = function() {
+                lightboxImage.classList.add('loaded');
+            };
+            if (lightboxImage.complete) {
+                lightboxImage.classList.add('loaded');
+            }
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+            isZoomed = false;
+            if (isPureMode) exitPureMode();
+        }
+
+        function goToLightbox(index) {
+            if (!currentGalleryImages || currentGalleryImages.length === 0) return;
+            if (index < 0) index = currentGalleryImages.length - 1;
+            if (index >= currentGalleryImages.length) index = 0;
+            currentLightboxIndex = index;
+            const img = currentGalleryImages[index];
+            lightboxImage.classList.remove('loaded', 'zoomed');
+            isZoomed = false;
+            setTimeout(() => {
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.title;
+                lightboxTitle.textContent = img.title;
+                lightboxCounter.textContent = `${index + 1} / ${currentGalleryImages.length}`;
+                lightboxImage.onload = function() {
+                    lightboxImage.classList.add('loaded');
+                };
+                if (lightboxImage.complete) {
+                    lightboxImage.classList.add('loaded');
+                }
+            }, 200);
+        }
+
+        function toggleZoom(e) {
+            e.stopPropagation();
+            if (!lightbox.classList.contains('open')) return;
+            isZoomed = !isZoomed;
+            if (isZoomed) {
+                lightboxImage.classList.add('zoomed');
+            } else {
+                lightboxImage.classList.remove('zoomed');
+            }
+        }
+
+        function enterPureMode() {
+            isPureMode = true;
+            lightbox.classList.add('pure-mode');
+            pureToggle.textContent = '?';
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            }
+        }
+
+        function exitPureMode() {
+            isPureMode = false;
+            lightbox.classList.remove('pure-mode');
+            pureToggle.textContent = '?';
+            if (document.fullscreenElement) {
+                document.exitFullscreen().catch(() => {});
+            }
+        }
+
+        function togglePureMode(e) {
+            e.stopPropagation();
+            if (!lightbox.classList.contains('open')) return;
+            if (isPureMode) {
+                exitPureMode();
+            } else {
+                enterPureMode();
+            }
+        }
+
+        document.addEventListener('fullscreenchange', function() {
+            if (!document.fullscreenElement && isPureMode) {
+                exitPureMode();
+            }
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+        pureToggle.addEventListener('click', togglePureMode);
+        lightboxImage.addEventListener('dblclick', toggleZoom);
+        lightboxImage.addEventListener('click', function(e) {
+            if (isPureMode) {
+                exitPureMode();
+            }
+        });
+        prevBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            goToLightbox(currentLightboxIndex - 1);
+        });
+        nextBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            goToLightbox(currentLightboxIndex + 1);
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') {
+                if (isPureMode) {
+                    exitPureMode();
+                } else {
+                    closeLightbox();
+                }
+            }
+            if (e.key === 'ArrowLeft') goToLightbox(currentLightboxIndex - 1);
+            if (e.key === 'ArrowRight') goToLightbox(currentLightboxIndex + 1);
+        });
+
+        // ================================================================
+        // 8. 主题切换 + Toast
+        // ================================================================
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+        const toastIcon = document.getElementById('toastIcon');
+        const moonPath = document.getElementById('moonPath');
+        const sunPath = document.getElementById('sunPath');
+
+        let toastTimer = null;
+
+        function showToast(message, icon) {
+            if (toastTimer) {
+                clearTimeout(toastTimer);
+                toast.classList.remove('show');
+            }
+            toastIcon.textContent = icon || '??';
+            toastMessage.textContent = message;
+            setTimeout(() => { toast.classList.add('show'); }, 50);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove('show');
+                toastTimer = null;
+            }, 2200);
+        }
+
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            if (theme === 'dark') {
+                moonPath.style.display = 'none';
+                sunPath.style.display = 'block';
+                showToast('Dark mode activated!', '??');
+            } else {
+                moonPath.style.display = 'block';
+                sunPath.style.display = 'none';
+                showToast('Light mode activated!', '??');
+            }
+        }
+
+        const storedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = storedTheme || (systemDark ? 'dark' : 'light');
+        if (initialTheme === 'dark') {
+            moonPath.style.display = 'none';
+            sunPath.style.display = 'block';
+        } else {
+            moonPath.style.display = 'block';
+            sunPath.style.display = 'none';
+        }
+        html.setAttribute('data-theme', initialTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        // ================================================================
+        // 9. 汉堡菜单
+        // ================================================================
+        const hamburger = document.getElementById('hamburgerBtn');
+        const menu = document.getElementById('fullscreenMenu');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        function toggleMenu() {
+            const isOpen = menu.classList.contains('open');
+            hamburger.classList.toggle('active');
+            menu.classList.toggle('open');
+            document.body.style.overflow = isOpen ? '' : 'hidden';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const page = this.dataset.page;
+                if (!page) return;
+                menuItems.forEach(m => m.classList.remove('highlight'));
+                this.classList.add('highlight');
+                switchPage(page);
+                if (menu.classList.contains('open')) {
+                    hamburger.classList.remove('active');
+                    menu.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+                setTimeout(() => {
+                    menuItems.forEach(m => m.classList.remove('highlight'));
+                }, 300);
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menu.classList.contains('open')) {
+                hamburger.classList.remove('active');
+                menu.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // ================================================================
+        // 10. 页面切换
+        // ================================================================
+        const pages = {
+            home: document.getElementById('page-home'),
+            gallery: document.getElementById('page-gallery'),
+            category: document.getElementById('page-category'),
+            favorites: document.getElementById('page-favorites'),
+            faq: document.getElementById('page-faq'),
+            changelog: document.getElementById('page-changelog'),
+            about: document.getElementById('page-about'),
+        };
+
+        function switchPage(pageId) {
+            Object.values(pages).forEach(p => { if (p) p.classList.remove('active'); });
+            if (pages[pageId]) pages[pageId].classList.add('active');
+            menuItems.forEach(item => {
+                item.classList.toggle('active', item.dataset.page === pageId);
+            });
+            if (history.pushState) history.pushState(null, '', '#' + pageId);
+            if (pageId === 'gallery') {
+                showGalleryList();
+            }
+            if (pageId === 'favorites') {
+                renderFavoritesPage();
+            }
+            // 更新收藏UI
+            updateAllFavUI();
+        }
+
+        document.getElementById('logoHome').addEventListener('click', function(e) {
+            e.preventDefault();
+            switchPage('home');
+            if (menu.classList.contains('open')) {
+                hamburger.classList.remove('active');
+                menu.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.querySelectorAll('[data-page]').forEach(el => {
+            if (el.closest('.menu-item')) return;
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                const page = this.dataset.page;
+                if (page) switchPage(page);
+            });
+        });
+
+        window.addEventListener('hashchange', () => {
+            const hash = location.hash.replace('#', '');
+            if (hash && pages[hash]) switchPage(hash);
+            else switchPage('home');
+        });
+
+        (function init() {
+            const hash = location.hash.replace('#', '');
+            if (hash && pages[hash]) switchPage(hash);
+            else switchPage('home');
+            // 初始化收藏UI
+            updateAllFavUI();
+        })();
+
+        // ================================================================
+        // 11. FAQ 手风琴
+        // ================================================================
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const item = this.closest('.faq-item');
+                const answer = item.querySelector('.faq-answer');
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(el => {
+                    if (el !== item) {
+                        el.classList.remove('open');
+                        const ans = el.querySelector('.faq-answer');
+                        if (ans) ans.style.maxHeight = '0px';
+                    }
+                });
+                if (isOpen) {
+                    item.classList.remove('open');
+                    answer.style.maxHeight = '0px';
+                } else {
+                    item.classList.add('open');
+                    requestAnimationFrame(() => {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    });
+                }
+            });
+        });
+
+        // ================================================================
+        // 12. 动态形状 (首页)
+        // ================================================================
+        const homeShapes = document.querySelectorAll('.home-shape');
+        if (homeShapes.length > 0) {
+            const speeds = [100, 70, 120];
+            let mouseX = 0,
+                mouseY = 0;
+            let currentX = 0,
+                currentY = 0;
+            const damping = 0.10;
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+            if (!isTouchDevice) {
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX / window.innerWidth - 0.5;
+                    mouseY = e.clientY / window.innerHeight - 0.5;
+                });
+            } else {
+                document.addEventListener('touchmove', (e) => {
+                    const touch = e.touches[0];
+                    if (touch) {
+                        mouseX = touch.clientX / window.innerWidth - 0.5;
+                        mouseY = touch.clientY / window.innerHeight - 0.5;
+                    }
+                }, { passive: true });
+            }
+
+            function animateHomeShapes() {
+                currentX += (mouseX - currentX) * damping;
+                currentY += (mouseY - currentY) * damping;
+                homeShapes.forEach((shape, index) => {
+                    const speed = speeds[index] || 80;
+                    shape.style.setProperty('--ix', (currentX * speed) + 'px');
+                    shape.style.setProperty('--iy', (currentY * speed) + 'px');
+                });
+                requestAnimationFrame(animateHomeShapes);
+            }
+            animateHomeShapes();
+        }
+
+        // 初始化完成
+        console.log('? 画作分享站已加载，共 ' + roleData.length + ' 个角色');
+        console.log('?? 收藏数据保存在 localStorage，共 ' + getTotalFavorites() + ' 项收藏');
+    </script>
+
+</body>
+</html>
