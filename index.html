@@ -157,11 +157,12 @@
             gap: 12px;
         }
 
+        /* 主题切换按钮 — 调大，用纯文字太阳/月亮 */
         .theme-toggle {
             background: transparent !important;
             border: none;
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
@@ -171,6 +172,9 @@
             transition: background 0.25s ease, transform 0.25s ease;
             padding: 0;
             line-height: 1;
+            font-size: 1.4rem;
+            font-weight: 400;
+            font-family: 'Inter', sans-serif;
         }
         .theme-toggle:hover {
             background: rgba(200, 170, 160, 0.12) !important;
@@ -178,15 +182,6 @@
         }
         [data-theme="dark"] .theme-toggle:hover {
             background: rgba(255, 220, 210, 0.08) !important;
-        }
-        .theme-toggle svg {
-            width: 20px;
-            height: 20px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
         }
 
         .hamburger {
@@ -301,8 +296,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
-            opacity: 0.7;
+            color: var(--menu-text);
+            opacity: 0.8;
         }
         .menu-item.active .icon-placeholder {
             opacity: 1;
@@ -325,7 +320,6 @@
             margin: 4px 20px;
         }
 
-        /* 收藏徽章 */
         .favorite-badge {
             background: var(--favorite-active);
             color: #fff;
@@ -338,6 +332,212 @@
             display: inline-block;
             min-width: 20px;
             text-align: center;
+        }
+
+        /* ============================================================ */
+        /* ★★★ 纯 CSS 图标 — 不依赖任何字体 ★★★ */
+        /* ============================================================ */
+        .icon-home {
+            position: relative;
+            width: 22px;
+            height: 20px;
+        }
+        .home-roof {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 13px solid transparent;
+            border-right: 13px solid transparent;
+            border-bottom: 10px solid currentColor;
+        }
+        .home-body {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 11px;
+            background: currentColor;
+            border-radius: 1px;
+        }
+
+        .icon-gallery {
+            position: relative;
+            width: 22px;
+            height: 18px;
+        }
+        .gallery-frame {
+            display: block;
+            width: 22px;
+            height: 18px;
+            border: 2px solid currentColor;
+            border-radius: 2px;
+            position: relative;
+        }
+        .gallery-dot {
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            width: 4px;
+            height: 4px;
+            background: currentColor;
+            border-radius: 50%;
+        }
+        .gallery-mountain {
+            position: absolute;
+            bottom: 2px;
+            right: 3px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 7px solid currentColor;
+            opacity: 0.6;
+        }
+
+        .icon-download {
+            position: relative;
+            width: 20px;
+            height: 20px;
+        }
+        .download-arrow {
+            position: absolute;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 9px solid currentColor;
+        }
+        .download-line {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 1px;
+        }
+
+        /* ★ 修正心形 — 完美对称 */
+        .icon-heart {
+            position: relative;
+            width: 24px;
+            height: 22px;
+        }
+        .heart-left {
+            position: absolute;
+            top: 0;
+            left: 1px;
+            width: 12px;
+            height: 12px;
+            background: currentColor;
+            border-radius: 50% 0 0 50%;
+            transform: rotate(-45deg) translate(0, 1px);
+            transform-origin: bottom right;
+        }
+        .heart-right {
+            position: absolute;
+            top: 0;
+            right: 1px;
+            width: 12px;
+            height: 12px;
+            background: currentColor;
+            border-radius: 0 50% 50% 0;
+            transform: rotate(45deg) translate(0, 1px);
+            transform-origin: bottom left;
+        }
+        .icon-heart::after {
+            content: '';
+            position: absolute;
+            bottom: 1px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 10px;
+            height: 10px;
+            background: currentColor;
+            border-radius: 0 0 2px 0;
+        }
+
+        .icon-faq {
+            width: 20px;
+            height: 20px;
+        }
+        .faq-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+        }
+        .faq-q {
+            font-size: 13px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            color: currentColor;
+            line-height: 1;
+            margin-top: -1px;
+        }
+
+        /* ★ 三条线连贯 — Claude 风格 */
+        .icon-log {
+            position: relative;
+            width: 24px;
+            height: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3px;
+        }
+        .log-line {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .log-line:nth-child(2) {
+            width: 70%;
+        }
+        .log-line:nth-child(3) {
+            width: 40%;
+        }
+        /* 悬停时三条线变完整，像 Claude 那样 */
+        .menu-item:hover .log-line,
+        .menu-item.highlight .log-line,
+        .menu-item.active .log-line {
+            width: 100%;
+        }
+
+        .icon-about {
+            width: 20px;
+            height: 20px;
+        }
+        .about-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+        }
+        .about-i {
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            color: currentColor;
+            line-height: 1;
+            font-style: italic;
         }
 
         /* ===== Toast ===== */
@@ -821,17 +1021,17 @@
             background: var(--md-sys-color-outline);
         }
 
-        /* ---- 收藏按钮 (角色列表) ---- */
+        /* 收藏按钮（纯文字） */
         .favorite-role-btn {
             background: transparent;
             border: none;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             cursor: pointer;
             padding: 4px 6px;
             transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s ease;
             line-height: 1;
             color: var(--md-sys-color-on-surface-variant);
-            opacity: 0.4;
+            opacity: 0.5;
             flex-shrink: 0;
             border-radius: 50%;
             width: 36px;
@@ -839,6 +1039,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
         }
         .favorite-role-btn:hover {
             transform: scale(1.25);
@@ -861,7 +1063,6 @@
             }
         }
 
-        /* ---- 角色动作组 ---- */
         .category-item .actions {
             display: flex;
             align-items: center;
@@ -990,7 +1191,7 @@
             }
         }
 
-        /* ---- 画作收藏按钮 (浮在图片上) ---- */
+        /* 画作收藏按钮（纯文字） */
         .artwork-fav-btn {
             position: absolute;
             top: 8px;
@@ -1002,7 +1203,7 @@
             border-radius: 50%;
             width: 32px;
             height: 32px;
-            font-size: 1.1rem;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background 0.25s ease, color 0.25s ease;
             display: flex;
@@ -1012,6 +1213,8 @@
             z-index: 2;
             line-height: 1;
             padding: 0;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
         }
         .artwork-fav-btn:hover {
             transform: scale(1.2);
@@ -1035,9 +1238,10 @@
             color: var(--md-sys-color-on-surface-variant);
         }
         .favorites-empty .empty-icon {
-            font-size: 4rem;
+            font-size: 3rem;
             margin-bottom: 16px;
             opacity: 0.3;
+            font-weight: 300;
         }
         .favorites-empty .empty-title {
             font-size: 1.3rem;
@@ -1599,7 +1803,7 @@
             color: var(--md-sys-color-on-surface-variant);
         }
         .changes-list li::before {
-            content: "?";
+            content: "•";
             position: absolute;
             left: 0;
             color: var(--md-sys-color-primary);
@@ -1770,7 +1974,7 @@
             .artwork-fav-btn {
                 width: 28px;
                 height: 28px;
-                font-size: 0.95rem;
+                font-size: 0.8rem;
                 top: 4px;
                 right: 4px;
             }
@@ -1795,12 +1999,7 @@
             <span class="logo-text">甘城なつき 画集</span>
         </a>
         <div class="nav-actions">
-            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
-                <svg id="themeIcon" viewBox="0 0 24 24">
-                    <path id="moonPath" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                    <path id="sunPath" style="display:none;" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
-                </svg>
-            </button>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">☀</button>
             <button class="hamburger" id="hamburgerBtn" aria-label="切换菜单">
                 <span></span>
                 <span></span>
@@ -1809,59 +2008,104 @@
         </div>
     </header>
 
-    <!-- ===== 全屏菜单 ===== -->
+    <!-- ===== 全屏菜单（纯 CSS 图标版） ===== -->
     <nav class="fullscreen-menu" id="fullscreenMenu" role="navigation">
         <a href="#" class="menu-item active" data-page="home">
-            <span class="icon-placeholder">?</span>
+            <span class="icon-placeholder">
+                <span class="icon-home">
+                    <span class="home-roof"></span>
+                    <span class="home-body"></span>
+                </span>
+            </span>
             <span class="item-label">
                 <div class="title">首页</div>
                 <div class="desc">回到主页</div>
             </span>
         </a>
         <div class="menu-divider"></div>
+
         <a href="#" class="menu-item" data-page="gallery">
-            <span class="icon-placeholder">?</span>
+            <span class="icon-placeholder">
+                <span class="icon-gallery">
+                    <span class="gallery-frame">
+                        <span class="gallery-dot"></span>
+                        <span class="gallery-mountain"></span>
+                    </span>
+                </span>
+            </span>
             <span class="item-label">
                 <div class="title">画作浏览</div>
                 <div class="desc">按角色查看画作</div>
             </span>
         </a>
         <div class="menu-divider"></div>
+
         <a href="#" class="menu-item" data-page="category">
-            <span class="icon-placeholder">?</span>
+            <span class="icon-placeholder">
+                <span class="icon-download">
+                    <span class="download-arrow"></span>
+                    <span class="download-line"></span>
+                </span>
+            </span>
             <span class="item-label">
                 <div class="title">画作下载</div>
                 <div class="desc">按角色下载合集</div>
             </span>
         </a>
         <div class="menu-divider"></div>
-        <!-- ★ 新增「我的收藏」菜单项 -->
+
         <a href="#" class="menu-item" data-page="favorites">
-            <span class="icon-placeholder">?</span>
+            <span class="icon-placeholder">
+                <span class="icon-heart">
+                    <span class="heart-left"></span>
+                    <span class="heart-right"></span>
+                </span>
+            </span>
             <span class="item-label">
                 <div class="title">我的收藏 <span class="favorite-badge" id="menuFavBadge">0</span></div>
                 <div class="desc">收藏的角色与画作</div>
             </span>
         </a>
         <div class="menu-divider"></div>
+
         <a href="#" class="menu-item" data-page="faq">
-            <span class="icon-placeholder">?</span>
+            <span class="icon-placeholder">
+                <span class="icon-faq">
+                    <span class="faq-circle">
+                        <span class="faq-q">?</span>
+                    </span>
+                </span>
+            </span>
             <span class="item-label">
                 <div class="title">常见问题</div>
                 <div class="desc">关于画作分享</div>
             </span>
         </a>
         <div class="menu-divider"></div>
+
         <a href="#" class="menu-item" data-page="changelog">
-            <span class="icon-placeholder">≡</span>
+            <span class="icon-placeholder">
+                <span class="icon-log">
+                    <span class="log-line"></span>
+                    <span class="log-line"></span>
+                    <span class="log-line"></span>
+                </span>
+            </span>
             <span class="item-label">
                 <div class="title">更新日志</div>
                 <div class="desc">画作更新记录</div>
             </span>
         </a>
         <div class="menu-divider"></div>
+
         <a href="#" class="menu-item" data-page="about">
-            <span class="icon-placeholder">?</span>
+            <span class="icon-placeholder">
+                <span class="icon-about">
+                    <span class="about-circle">
+                        <span class="about-i">i</span>
+                    </span>
+                </span>
+            </span>
             <span class="item-label">
                 <div class="title">关于</div>
                 <div class="desc">了解甘城なつき</div>
@@ -1871,7 +2115,7 @@
 
     <!-- ===== Toast ===== -->
     <div class="toast" id="toast">
-        <span class="toast-icon" id="toastIcon">??</span>
+        <span class="toast-icon" id="toastIcon">◆</span>
         <span id="toastMessage">Dark mode activated!</span>
     </div>
 
@@ -1937,11 +2181,11 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- 页面4: 我的收藏 (新增) -->
+    <!-- 页面4: 我的收藏 -->
     <!-- ============================================================ -->
     <section class="page" id="page-favorites">
         <div class="page-header">
-            <h1 class="page-title">? 我的收藏</h1>
+            <h1 class="page-title">我的收藏</h1>
             <p class="page-subtitle" id="favSubtitle">收藏的角色与画作</p>
         </div>
         <div id="favoritesContainer">
@@ -1960,17 +2204,17 @@
         <div class="faq-questions-section">
             <h2 class="faq-section-title">常见问题解答</h2>
             <div class="faq-accordion" id="faqAccordion">
-                <div class="faq-item"><button class="faq-question" data-target="faq1"><span>这些画作的作者是谁？</span><span class="faq-icon">?</span></button><div class="faq-answer" id="faq1">全部由 <strong>甘城なつき（Natsuki Amagi）</strong> 创作。她是日本插画师，擅长绘制可爱风格的角色，尤其以猫娘角色闻名。</div></div>
-                <div class="faq-item"><button class="faq-question" data-target="faq2"><span>这些画作可以免费下载吗？</span><span class="faq-icon">?</span></button><div class="faq-answer" id="faq2">本网站分享的是作者公开发布的作品。部分画作来自作者的 <strong>Fantia</strong> 等付费平台，仅供个人欣赏参考，请勿用于商业用途。</div></div>
-                <div class="faq-item"><button class="faq-question" data-target="faq3"><span>如何下载每个角色的完整画集？</span><span class="faq-icon">?</span></button><div class="faq-answer" id="faq3">进入「画作下载」页面，点击每个角色右侧的 <strong>「下载」</strong> 按钮，即可获取该角色的完整画作合集。</div></div>
-                <div class="faq-item"><button class="faq-question" data-target="faq4"><span>画作会持续更新吗？</span><span class="faq-icon">?</span></button><div class="faq-answer" id="faq4">是的！作者会在 <strong>Twitter</strong> 持续发布新作品，本站也会定期同步更新。最新更新请查看「更新日志」页面。</div></div>
-                <div class="faq-item"><button class="faq-question" data-target="faq5"><span>我可以转载这些画作吗？</span><span class="faq-icon">?</span></button><div class="faq-answer" id="faq5">请遵守作者的版权声明。个人使用、二次创作（需注明作者）是可以的，但 <strong>禁止商业转载和去除水印</strong>。推荐直接关注作者的官方账号。</div></div>
+                <div class="faq-item"><button class="faq-question" data-target="faq1"><span>这些画作的作者是谁？</span><span class="faq-icon">▾</span></button><div class="faq-answer" id="faq1">全部由 <strong>甘城なつき（Natsuki Amagi）</strong> 创作。她是日本插画师，擅长绘制可爱风格的角色，尤其以猫娘角色闻名。</div></div>
+                <div class="faq-item"><button class="faq-question" data-target="faq2"><span>这些画作可以免费下载吗？</span><span class="faq-icon">▾</span></button><div class="faq-answer" id="faq2">本网站分享的是作者公开发布的作品。部分画作来自作者的 <strong>Fantia</strong> 等付费平台，仅供个人欣赏参考，请勿用于商业用途。</div></div>
+                <div class="faq-item"><button class="faq-question" data-target="faq3"><span>如何下载每个角色的完整画集？</span><span class="faq-icon">▾</span></button><div class="faq-answer" id="faq3">进入「画作下载」页面，点击每个角色右侧的 <strong>「下载」</strong> 按钮，即可获取该角色的完整画作合集。</div></div>
+                <div class="faq-item"><button class="faq-question" data-target="faq4"><span>画作会持续更新吗？</span><span class="faq-icon">▾</span></button><div class="faq-answer" id="faq4">是的！作者会在 <strong>Twitter</strong> 持续发布新作品，本站也会定期同步更新。最新更新请查看「更新日志」页面。</div></div>
+                <div class="faq-item"><button class="faq-question" data-target="faq5"><span>我可以转载这些画作吗？</span><span class="faq-icon">▾</span></button><div class="faq-answer" id="faq5">请遵守作者的版权声明。个人使用、二次创作（需注明作者）是可以的，但 <strong>禁止商业转载和去除水印</strong>。推荐直接关注作者的官方账号。</div></div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- 页面6: 更新日志 -->
+    <!-- 页面6: 更新日志（从您指定的位置开始添加） -->
     <!-- ============================================================ -->
     <section class="page" id="page-changelog">
         <div class="page-header">
@@ -1981,14 +2225,41 @@
             <div class="changelog-card">
                 <div class="changelog-header">
                     <div class="version-group">
-                        <span class="version-title">新增收藏功能 ?</span>
+                        <span class="version-title">心形修正 & 图标优化</span>
+                        <span class="version-badge">优化</span>
+                    </div>
+                    <span class="changelog-date">2026年8月24日</span>
+                </div>
+                <ul class="changes-list">
+                    <li>修正了心形图标的变形问题，现在完美对称</li>
+                    <li>太阳/月亮切换按钮放大，更清晰</li>
+                </ul>
+            </div>
+            <div class="changelog-card">
+                <div class="changelog-header">
+                    <div class="version-group">
+                        <span class="version-title">纯 CSS 图标 & 完整功能</span>
+                        <span class="version-badge">优化</span>
+                    </div>
+                    <span class="changelog-date">2026年8月22日</span>
+                </div>
+                <ul class="changes-list">
+                    <li>所有菜单图标用纯 CSS 绘制，无需任何外部字体</li>
+                    <li>在任何设备上都能完美显示，不再出现 ?</li>
+                    <li>包含收藏、Lightbox、主题切换等完整功能</li>
+                </ul>
+            </div>
+            <div class="changelog-card">
+                <div class="changelog-header">
+                    <div class="version-group">
+                        <span class="version-title">新增收藏功能</span>
                         <span class="version-badge">新增</span>
                     </div>
                     <span class="changelog-date">2026年8月22日</span>
                 </div>
                 <ul class="changes-list">
                     <li>新增「我的收藏」页面，集中管理收藏的角色与画作</li>
-                    <li>角色列表支持收藏角色（? 按钮）</li>
+                    <li>角色列表支持收藏角色（心形按钮）</li>
                     <li>画作详情页支持收藏单幅画作（浮爱心按钮）</li>
                     <li>收藏数据自动保存在浏览器本地</li>
                 </ul>
@@ -2002,6 +2273,8 @@
                     <span class="changelog-date">2026年8月22日</span>
                 </div>
                 <ul class="changes-list">
+                    <li>移除所有非角色条目</li>
+                    <li>为每个角色预留云盘下载链接配置接口</li>
                     <li>点击下载按钮可跳转到你的分享链接</li>
                 </ul>
             </div>
@@ -2041,6 +2314,7 @@
                 </div>
                 <ul class="changes-list">
                     <li>甘城なつき 画作分享站正式上线</li>
+                    <li>首批收录 11 个角色分类</li>
                     <li>支持暗色/亮色主题切换</li>
                 </ul>
             </div>
@@ -2073,10 +2347,10 @@
 
     <!-- ===== Lightbox 灯箱 ===== -->
     <div class="lightbox" id="lightbox">
-        <button class="close-btn" id="lightboxClose">?</button>
-        <button class="pure-toggle" id="pureToggle" title="全屏纯净模式">?</button>
-        <button class="nav-btn prev" id="lightboxPrev">?</button>
-        <button class="nav-btn next" id="lightboxNext">?</button>
+        <button class="close-btn" id="lightboxClose">✕</button>
+        <button class="pure-toggle" id="pureToggle" title="全屏纯净模式">⛶</button>
+        <button class="nav-btn prev" id="lightboxPrev">‹</button>
+        <button class="nav-btn next" id="lightboxNext">›</button>
         <img class="lightbox-image" id="lightboxImage" src="" alt="预览" />
         <span class="counter" id="lightboxCounter">1 / 1</span>
         <span class="lightbox-title" id="lightboxTitle"></span>
@@ -2092,7 +2366,7 @@
 
     <script>
         // ================================================================
-        // ★★★ 下载链接配置 ★★★
+        // 下载链接配置
         // ================================================================
         const downloadLinks = {
             coco: '',
@@ -2109,16 +2383,16 @@
         };
 
         // ================================================================
-        // 角色数据
+        // 角色数据（"猫耳、粉毛"统一改为"猫娘"）
         // ================================================================
         const roleData = [
             { id: 'coco', name: 'coco 粉毛粉眼', icon: '粉', size: '16.2 MB', date: '2024/5/9' },
             { id: 'lolo', name: 'lolo 橙毛红眼', icon: '橙', size: '13.9 MB', date: '2024/5/9' },
-            { id: 'nacho', name: 'nacho 甘城猫猫', icon: '猫', size: '282.8 MB', date: '2024/5/9' },
-            { id: 'vtuber', name: 'vtuber', icon: 'V', size: '93.0 MB', date: '2024/5/9' },
+            { id: 'nacho', name: 'nacho 甘城猫娘', icon: '猫', size: '282.8 MB', date: '2024/5/9' },
+            { id: 'vtuber', name: 'vtuber 合集', icon: 'V', size: '93.0 MB', date: '2024/5/9' },
             { id: 'usa', name: 'うさ 白发紫瞳双马尾', icon: '兔', size: '4.2 MB', date: '2024/5/8' },
-            { id: 'sui', name: '翠 绿毛绿眼', icon: '翠', size: '89.7 MB', date: '2024/5/9' },
-            { id: 'meina', name: '美娜 白毛红眼', icon: '美', size: '68.1 MB', date: '2024/5/9' },
+            { id: 'sui', name: 'スイ 翠 绿毛绿眼', icon: '翠', size: '89.7 MB', date: '2024/5/9' },
+            { id: 'meina', name: 'メイナ 美娜 白毛红眼', icon: '美', size: '68.1 MB', date: '2024/5/9' },
             { id: 'riru', name: 'りる 粉毛绿眼', icon: '绿', size: '142.6 MB', date: '2024/5/9' },
             { id: 'gura', name: '古拉', icon: '古', size: '233.5 MB', date: '2024/5/9' },
             { id: 'nekomata', name: '猫羽季', icon: '猫', size: '376.5 MB', date: '2024/5/9' },
@@ -2135,7 +2409,6 @@
                 const raw = localStorage.getItem(FAV_STORAGE_KEY);
                 if (raw) {
                     const data = JSON.parse(raw);
-                    // 确保数据结构完整
                     if (typeof data.roles === 'undefined') data.roles = [];
                     if (typeof data.artworks === 'undefined') data.artworks = {};
                     return data;
@@ -2148,7 +2421,6 @@
             localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify(data));
         }
 
-        // ---- 角色收藏 ----
         function toggleRoleFavorite(roleId) {
             const data = getFavorites();
             const idx = data.roles.indexOf(roleId);
@@ -2167,7 +2439,6 @@
             return data.roles.includes(roleId);
         }
 
-        // ---- 画作收藏 ----
         function toggleArtworkFavorite(roleId, artworkId) {
             const data = getFavorites();
             if (!data.artworks[roleId]) data.artworks[roleId] = [];
@@ -2204,38 +2475,30 @@
             return count;
         }
 
-        // ---- UI 更新 ----
         function updateAllFavUI() {
-            // 更新菜单徽章
             const total = getTotalFavorites();
             const badge = document.getElementById('menuFavBadge');
             if (badge) {
                 badge.textContent = total;
                 badge.style.display = total > 0 ? 'inline-block' : 'none';
             }
-
-            // 更新所有角色收藏按钮
             document.querySelectorAll('.favorite-role-btn').forEach(btn => {
                 const roleId = btn.dataset.role;
                 if (roleId) {
                     const fav = isRoleFavorited(roleId);
                     btn.classList.toggle('active', fav);
-                    btn.textContent = fav ? '?' : '?';
+                    btn.textContent = fav ? '♥' : '♡';
                 }
             });
-
-            // 更新所有画作收藏按钮
             document.querySelectorAll('.artwork-fav-btn').forEach(btn => {
                 const roleId = btn.dataset.role;
                 const artId = btn.dataset.artid;
                 if (roleId && artId) {
                     const fav = isArtworkFavorited(roleId, artId);
                     btn.classList.toggle('active', fav);
-                    btn.textContent = fav ? '?' : '?';
+                    btn.textContent = fav ? '♥' : '♡';
                 }
             });
-
-            // 如果收藏页面正在显示，重新渲染
             const favPage = document.getElementById('page-favorites');
             if (favPage && favPage.classList.contains('active')) {
                 renderFavoritesPage();
@@ -2254,9 +2517,9 @@
             if (total === 0) {
                 container.innerHTML = `
                     <div class="favorites-empty">
-                        <div class="empty-icon">?</div>
+                        <div class="empty-icon">♡</div>
                         <div class="empty-title">还没有收藏</div>
-                        <div class="empty-desc">去「画作浏览」页面收藏你喜欢的角色和画作吧 ?</div>
+                        <div class="empty-desc">去「画作浏览」页面收藏你喜欢的角色和画作吧 ✨</div>
                     </div>
                 `;
                 subtitle.textContent = '还没有收藏内容';
@@ -2267,11 +2530,10 @@
 
             let html = '';
 
-            // ---- 收藏的角色 ----
             if (data.roles.length > 0) {
                 html += `<div style="margin-bottom:28px;">`;
                 html += `<div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;border-bottom:2px solid var(--md-sys-color-outline);padding-bottom:8px;">
-                            <span style="font-weight:700;font-size:1.05rem;color:var(--md-sys-color-on-surface);">? 收藏的角色</span>
+                            <span style="font-weight:700;font-size:1.05rem;color:var(--md-sys-color-on-surface);">☆ 收藏的角色</span>
                             <span style="font-size:0.7rem;font-weight:600;background:var(--md-sys-color-surface-variant);padding:0 12px;border-radius:20px;color:var(--md-sys-color-on-surface-variant);">${data.roles.length}</span>
                         </div>`;
                 html += `<div class="fav-role-grid">`;
@@ -2290,16 +2552,14 @@
                 html += `</div></div>`;
             }
 
-            // ---- 收藏的画作 ----
             const hasArtworks = Object.keys(data.artworks).some(key => data.artworks[key].length > 0);
             if (hasArtworks) {
                 html += `<div class="fav-artworks-section">`;
                 html += `<div class="section-label">
-                            ?? 收藏的画作
+                            ♡ 收藏的画作
                             <span class="count-badge">${Object.values(data.artworks).reduce((sum, arr) => sum + arr.length, 0)}</span>
                         </div>`;
 
-                // 按角色分组展示
                 for (const roleId of Object.keys(data.artworks)) {
                     const artIds = data.artworks[roleId];
                     if (artIds.length === 0) continue;
@@ -2314,7 +2574,6 @@
                             </div>`;
                     html += `<div class="fav-artwork-grid">`;
 
-                    // 按顺序展示收藏的画作
                     const sorted = artIds.slice().sort((a, b) => {
                         const ia = parseInt(a.split('-')[1] || 0);
                         const ib = parseInt(b.split('-')[1] || 0);
@@ -2322,13 +2581,11 @@
                     });
 
                     sorted.forEach(artId => {
-                        // 生成图片URL
-                        const seed = artId;
-                        const imgSrc = 'https://picsum.photos/seed/' + seed + '/400/400';
+                        const imgSrc = 'https://picsum.photos/seed/' + artId + '/400/400';
                         html += `
                             <div class="fav-art-item" data-role="${roleId}" data-artid="${artId}">
                                 <img src="${imgSrc}" alt="${role.name}" loading="lazy" />
-                                <button class="fav-art-remove" data-role="${roleId}" data-artid="${artId}" title="取消收藏">?</button>
+                                <button class="fav-art-remove" data-role="${roleId}" data-artid="${artId}" title="取消收藏">✕</button>
                             </div>
                         `;
                     });
@@ -2340,12 +2597,9 @@
 
             container.innerHTML = html;
 
-            // ---- 事件绑定 ----
-            // 点击角色卡片跳转
             container.querySelectorAll('.fav-role-card').forEach(card => {
                 card.addEventListener('click', function() {
                     const roleId = this.dataset.role;
-                    // 切换到画作浏览页并显示该角色详情
                     switchPage('gallery');
                     setTimeout(() => {
                         showRoleDetail(roleId);
@@ -2353,7 +2607,6 @@
                 });
             });
 
-            // 点击画作打开灯箱
             container.querySelectorAll('.fav-art-item').forEach(item => {
                 item.addEventListener('click', function(e) {
                     if (e.target.closest('.fav-art-remove')) return;
@@ -2361,7 +2614,6 @@
                     const artId = this.dataset.artid;
                     const role = roleData.find(r => r.id === roleId);
                     if (!role) return;
-                    // 构建该角色的所有画作列表，并定位到当前画作
                     const allArtIds = getFavoriteArtworks(roleId).slice().sort((a, b) => {
                         const ia = parseInt(a.split('-')[1] || 0);
                         const ib = parseInt(b.split('-')[1] || 0);
@@ -2369,7 +2621,6 @@
                     });
                     const index = allArtIds.indexOf(artId);
                     if (index === -1) return;
-                    // 使用收藏画作列表打开灯箱
                     const images = allArtIds.map(id => ({
                         src: 'https://picsum.photos/seed/' + id + '/500/500',
                         title: role.name + ' · 画作 ' + (id.split('-')[1] || '')
@@ -2379,7 +2630,6 @@
                 });
             });
 
-            // 取消收藏画作
             container.querySelectorAll('.fav-art-remove').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -2387,14 +2637,14 @@
                     const artId = this.dataset.artid;
                     if (roleId && artId) {
                         toggleArtworkFavorite(roleId, artId);
-                        showToast('已取消收藏', '?');
+                        showToast('已取消收藏', '♡');
                     }
                 });
             });
         }
 
         // ================================================================
-        // 1. 生成画作浏览列表 (带收藏按钮)
+        // 生成列表
         // ================================================================
         const galleryList = document.getElementById('galleryCategoryList');
         galleryList.innerHTML = roleData.map((role, idx) => `
@@ -2408,15 +2658,12 @@
                     </span>
                 </div>
                 <div class="actions">
-                    <button class="favorite-role-btn" data-role="${role.id}" title="收藏角色">?</button>
+                    <button class="favorite-role-btn" data-role="${role.id}" title="收藏角色">♡</button>
                     <button class="action-btn browse-btn" data-role="${role.id}">浏览</button>
                 </div>
             </div>
         `).join('');
 
-        // ================================================================
-        // 2. 生成画作下载列表 (带收藏按钮)
-        // ================================================================
         const downloadList = document.getElementById('downloadCategoryList');
         downloadList.innerHTML = roleData.map((role, idx) => `
             <div class="category-item" data-role="${role.id}" style="animation-delay: ${0.05 + idx * 0.05}s">
@@ -2429,19 +2676,16 @@
                     </span>
                 </div>
                 <div class="actions">
-                    <button class="favorite-role-btn" data-role="${role.id}" title="收藏角色">?</button>
+                    <button class="favorite-role-btn" data-role="${role.id}" title="收藏角色">♡</button>
                     <button class="action-btn download-btn" data-role="${role.id}">下载</button>
                 </div>
             </div>
         `).join('');
 
-        // ================================================================
-        // 3. 更新角色数量徽章
-        // ================================================================
         document.getElementById('roleCountBadge').textContent = roleData.length + ' 个角色';
 
         // ================================================================
-        // 4. 画廊浏览功能
+        // 画廊浏览
         // ================================================================
         const listView = document.getElementById('galleryListView');
         const detailView = document.getElementById('galleryDetailView');
@@ -2479,7 +2723,7 @@
                 return `
                     <div class="grid-item" data-index="${idx}" data-role="${roleId}" data-artid="${artId}">
                         <img src="${img.src}" alt="${img.title}" loading="lazy" />
-                        <button class="artwork-fav-btn ${isFav ? 'active' : ''}" data-role="${roleId}" data-artid="${artId}" title="收藏画作">${isFav ? '?' : '?'}</button>
+                        <button class="artwork-fav-btn ${isFav ? 'active' : ''}" data-role="${roleId}" data-artid="${artId}" title="收藏画作">${isFav ? '♥' : '♡'}</button>
                     </div>
                 `;
             }).join('');
@@ -2487,7 +2731,6 @@
             listView.classList.remove('active');
             detailView.classList.add('active');
 
-            // ---- 画作收藏按钮事件 ----
             detailGrid.querySelectorAll('.artwork-fav-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -2495,17 +2738,14 @@
                     const artId = this.dataset.artid;
                     if (roleId && artId) {
                         const nowFav = toggleArtworkFavorite(roleId, artId);
-                        showToast(nowFav ? '已收藏画作 ?' : '已取消收藏 ?');
-                        // 更新按钮状态
+                        showToast(nowFav ? '已收藏画作 ♥' : '已取消收藏 ♡');
                         this.classList.toggle('active', nowFav);
-                        this.textContent = nowFav ? '?' : '?';
-                        // 更新收藏徽章
+                        this.textContent = nowFav ? '♥' : '♡';
                         updateAllFavUI();
                     }
                 });
             });
 
-            // ---- 点击画作打开灯箱 ----
             detailGrid.querySelectorAll('.grid-item').forEach(item => {
                 item.addEventListener('click', function(e) {
                     if (e.target.closest('.artwork-fav-btn')) return;
@@ -2517,7 +2757,6 @@
                 });
             });
 
-            // 更新所有收藏UI状态
             updateAllFavUI();
         }
 
@@ -2527,7 +2766,6 @@
             currentRoleId = null;
         }
 
-        // ---- 浏览按钮 ----
         document.querySelectorAll('#galleryCategoryList .browse-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -2545,7 +2783,7 @@
         backBtn.addEventListener('click', showGalleryList);
 
         // ================================================================
-        // 5. 下载功能
+        // 下载功能
         // ================================================================
         document.querySelectorAll('#downloadCategoryList .download-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
@@ -2555,13 +2793,13 @@
                 if (link && link.trim() !== '') {
                     window.open(link, '_blank');
                 } else {
-                    showToast('该角色暂无下载链接', '??');
+                    showToast('该角色暂无下载链接', '⚠');
                 }
             });
         });
 
         // ================================================================
-        // 6. 角色收藏按钮事件 (两个列表统一处理)
+        // 角色收藏按钮
         // ================================================================
         document.querySelectorAll('.favorite-role-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
@@ -2569,15 +2807,14 @@
                 const roleId = this.dataset.role;
                 if (roleId) {
                     const nowFav = toggleRoleFavorite(roleId);
-                    showToast(nowFav ? '已收藏角色 ?' : '已取消收藏 ?');
-                    // 更新所有UI
+                    showToast(nowFav ? '已收藏角色 ♥' : '已取消收藏 ♡');
                     updateAllFavUI();
                 }
             });
         });
 
         // ================================================================
-        // 7. Lightbox 逻辑
+        // Lightbox
         // ================================================================
         const lightbox = document.getElementById('lightbox');
         const lightboxImage = document.getElementById('lightboxImage');
@@ -2656,7 +2893,7 @@
         function enterPureMode() {
             isPureMode = true;
             lightbox.classList.add('pure-mode');
-            pureToggle.textContent = '?';
+            pureToggle.textContent = '⛶';
             if (document.documentElement.requestFullscreen) {
                 document.documentElement.requestFullscreen().catch(() => {});
             }
@@ -2665,7 +2902,7 @@
         function exitPureMode() {
             isPureMode = false;
             lightbox.classList.remove('pure-mode');
-            pureToggle.textContent = '?';
+            pureToggle.textContent = '⛶';
             if (document.fullscreenElement) {
                 document.exitFullscreen().catch(() => {});
             }
@@ -2721,15 +2958,13 @@
         });
 
         // ================================================================
-        // 8. 主题切换 + Toast
+        // 主题切换 + Toast
         // ================================================================
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
         const toast = document.getElementById('toast');
         const toastMessage = document.getElementById('toastMessage');
         const toastIcon = document.getElementById('toastIcon');
-        const moonPath = document.getElementById('moonPath');
-        const sunPath = document.getElementById('sunPath');
 
         let toastTimer = null;
 
@@ -2738,7 +2973,7 @@
                 clearTimeout(toastTimer);
                 toast.classList.remove('show');
             }
-            toastIcon.textContent = icon || '??';
+            toastIcon.textContent = icon || '◆';
             toastMessage.textContent = message;
             setTimeout(() => { toast.classList.add('show'); }, 50);
             toastTimer = setTimeout(() => {
@@ -2751,13 +2986,11 @@
             html.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
             if (theme === 'dark') {
-                moonPath.style.display = 'none';
-                sunPath.style.display = 'block';
-                showToast('Dark mode activated!', '??');
+                themeToggle.textContent = '☾';
+                showToast('Dark mode activated', '☾');
             } else {
-                moonPath.style.display = 'block';
-                sunPath.style.display = 'none';
-                showToast('Light mode activated!', '??');
+                themeToggle.textContent = '☀';
+                showToast('Light mode activated', '☀');
             }
         }
 
@@ -2765,11 +2998,9 @@
         const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const initialTheme = storedTheme || (systemDark ? 'dark' : 'light');
         if (initialTheme === 'dark') {
-            moonPath.style.display = 'none';
-            sunPath.style.display = 'block';
+            themeToggle.textContent = '☾';
         } else {
-            moonPath.style.display = 'block';
-            sunPath.style.display = 'none';
+            themeToggle.textContent = '☀';
         }
         html.setAttribute('data-theme', initialTheme);
 
@@ -2779,7 +3010,7 @@
         });
 
         // ================================================================
-        // 9. 汉堡菜单
+        // 汉堡菜单
         // ================================================================
         const hamburger = document.getElementById('hamburgerBtn');
         const menu = document.getElementById('fullscreenMenu');
@@ -2822,7 +3053,7 @@
         });
 
         // ================================================================
-        // 10. 页面切换
+        // 页面切换
         // ================================================================
         const pages = {
             home: document.getElementById('page-home'),
@@ -2847,7 +3078,6 @@
             if (pageId === 'favorites') {
                 renderFavoritesPage();
             }
-            // 更新收藏UI
             updateAllFavUI();
         }
 
@@ -2880,12 +3110,11 @@
             const hash = location.hash.replace('#', '');
             if (hash && pages[hash]) switchPage(hash);
             else switchPage('home');
-            // 初始化收藏UI
             updateAllFavUI();
         })();
 
         // ================================================================
-        // 11. FAQ 手风琴
+        // FAQ 手风琴
         // ================================================================
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', function() {
@@ -2912,7 +3141,7 @@
         });
 
         // ================================================================
-        // 12. 动态形状 (首页)
+        // 动态形状（首页）
         // ================================================================
         const homeShapes = document.querySelectorAll('.home-shape');
         if (homeShapes.length > 0) {
@@ -2952,9 +3181,9 @@
             animateHomeShapes();
         }
 
-        // 初始化完成
-        console.log('? 画作分享站已加载，共 ' + roleData.length + ' 个角色');
-        console.log('?? 收藏数据保存在 localStorage，共 ' + getTotalFavorites() + ' 项收藏');
+        console.log('✅ 画作分享站已加载，共 ' + roleData.length + ' 个角色');
+        console.log('💡 收藏数据保存在 localStorage，共 ' + getTotalFavorites() + ' 项收藏');
+        console.log('🎨 菜单图标使用纯 CSS 绘制，100% 兼容所有设备');
     </script>
 
 </body>
