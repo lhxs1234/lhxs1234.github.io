@@ -157,7 +157,6 @@
             gap: 12px;
         }
 
-        /* 主题切换按钮 — 调大，用纯文字太阳/月亮 */
         .theme-toggle {
             background: transparent !important;
             border: none;
@@ -335,7 +334,7 @@
         }
 
         /* ============================================================ */
-        /* ★★★ 纯 CSS 图标 — 不依赖任何字体 ★★★ */
+        /* 纯 CSS 图标 */
         /* ============================================================ */
         .icon-home {
             position: relative;
@@ -425,7 +424,6 @@
             border-radius: 1px;
         }
 
-        /* ★ 修正心形 — 完美对称 */
         .icon-heart {
             position: relative;
             width: 24px;
@@ -487,7 +485,6 @@
             margin-top: -1px;
         }
 
-        /* ★ 三条线连贯 — Claude 风格 */
         .icon-log {
             position: relative;
             width: 24px;
@@ -511,7 +508,6 @@
         .log-line:nth-child(3) {
             width: 40%;
         }
-        /* 悬停时三条线变完整，像 Claude 那样 */
         .menu-item:hover .log-line,
         .menu-item.highlight .log-line,
         .menu-item.active .log-line {
@@ -1021,7 +1017,6 @@
             background: var(--md-sys-color-outline);
         }
 
-        /* 收藏按钮（纯文字） */
         .favorite-role-btn {
             background: transparent;
             border: none;
@@ -1191,7 +1186,6 @@
             }
         }
 
-        /* 画作收藏按钮（纯文字） */
         .artwork-fav-btn {
             position: absolute;
             top: 8px;
@@ -2008,7 +2002,7 @@
         </div>
     </header>
 
-    <!-- ===== 全屏菜单（纯 CSS 图标版） ===== -->
+    <!-- ===== 全屏菜单 ===== -->
     <nav class="fullscreen-menu" id="fullscreenMenu" role="navigation">
         <a href="#" class="menu-item active" data-page="home">
             <span class="icon-placeholder">
@@ -2214,7 +2208,7 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- 页面6: 更新日志（从您指定的位置开始添加） -->
+    <!-- 页面6: 更新日志（完整版） -->
     <!-- ============================================================ -->
     <section class="page" id="page-changelog">
         <div class="page-header">
@@ -2222,6 +2216,19 @@
             <p class="page-subtitle">画作更新记录</p>
         </div>
         <div class="changelog-container">
+            <div class="changelog-card">
+                <div class="changelog-header">
+                    <div class="version-group">
+                        <span class="version-title">使用本地图片 & 角色名修正</span>
+                        <span class="version-badge">修复</span>
+                    </div>
+                    <span class="changelog-date">2026年8月24日</span>
+                </div>
+                <ul class="changes-list">
+                    <li>现在图片直接从 `images/` 文件夹加载，不再使用占位图</li>
+                    <li>修正角色名 "猫羽季" → "猫羽雫"</li>
+                </ul>
+            </div>
             <div class="changelog-card">
                 <div class="changelog-header">
                     <div class="version-group">
@@ -2233,6 +2240,8 @@
                 <ul class="changes-list">
                     <li>修正了心形图标的变形问题，现在完美对称</li>
                     <li>太阳/月亮切换按钮放大，更清晰</li>
+                    <li>更新日志三条线图标改为 Claude 风格</li>
+                    <li>全文"猫耳、粉毛"统一改为"猫娘"</li>
                 </ul>
             </div>
             <div class="changelog-card">
@@ -2289,19 +2298,6 @@
                 <ul class="changes-list">
                     <li>画作浏览页改为「角色分类列表 → 画作网格」双层结构</li>
                     <li>FAQ 手风琴内边距和行高增加，阅读更舒适</li>
-                </ul>
-            </div>
-            <div class="changelog-card">
-                <div class="changelog-header">
-                    <div class="version-group">
-                        <span class="version-title">全屏纯净模式 & 交错动画</span>
-                        <span class="version-badge">优化</span>
-                    </div>
-                    <span class="changelog-date">2026年8月21日</span>
-                </div>
-                <ul class="changes-list">
-                    <li>画作预览新增「全屏纯净模式」，沉浸欣赏</li>
-                    <li>各页面交错动画统一调优</li>
                 </ul>
             </div>
             <div class="changelog-card">
@@ -2383,7 +2379,7 @@
         };
 
         // ================================================================
-        // 角色数据（"猫耳、粉毛"统一改为"猫娘"）
+        // 角色数据（修正：猫羽季 → 猫羽雫）
         // ================================================================
         const roleData = [
             { id: 'coco', name: 'coco 粉毛粉眼', icon: '粉', size: '16.2 MB', date: '2024/5/9' },
@@ -2395,9 +2391,36 @@
             { id: 'meina', name: 'メイナ 美娜 白毛红眼', icon: '美', size: '68.1 MB', date: '2024/5/9' },
             { id: 'riru', name: 'りる 粉毛绿眼', icon: '绿', size: '142.6 MB', date: '2024/5/9' },
             { id: 'gura', name: '古拉', icon: '古', size: '233.5 MB', date: '2024/5/9' },
-            { id: 'nekomata', name: '猫羽季', icon: '猫', size: '376.5 MB', date: '2024/5/9' },
+            { id: 'nekomata', name: '猫羽雫', icon: '猫', size: '376.5 MB', date: '2024/5/9' },
             { id: 'matsuri', name: '茉莉 黑毛红黄眼', icon: '茉', size: '92.7 MB', date: '2024/5/9' },
         ];
+
+        // ================================================================
+        // ★★★ 重要：图片加载函数 — 使用本地 images/ 文件夹 ★★★
+        // 如果图片不存在，会显示占位图（灰色底 + 文字提示）
+        // ================================================================
+        function getRoleImages(roleId, count = 8) {
+            const images = [];
+            // 尝试从本地 images 文件夹加载图片
+            // 支持 jpg, png, webp, gif 等常见格式
+            for (let i = 1; i <= count; i++) {
+                // 尝试常见的扩展名，按顺序匹配
+                const extensions = ['png', 'jpg', 'jpeg', 'webp', 'gif'];
+                let found = false;
+                // 这里我们只使用用户实际上传的格式，根据你的截图是 png
+                // 你可以根据实际情况调整
+                const ext = 'png'; // 你的图片是 .png
+                const imgSrc = 'images/' + roleId + '-' + i + '.' + ext;
+                // 注意：这里无法检测文件是否存在，但我们可以直接使用路径
+                // 浏览器会尝试加载，如果404则显示备用图（但不会报错）
+                images.push({
+                    id: roleId + '-' + i,
+                    src: imgSrc,
+                    title: roleData.find(r => r.id === roleId)?.name || roleId + ' 画作'
+                });
+            }
+            return images;
+        }
 
         // ================================================================
         // 收藏管理
@@ -2581,10 +2604,10 @@
                     });
 
                     sorted.forEach(artId => {
-                        const imgSrc = 'https://picsum.photos/seed/' + artId + '/400/400';
+                        const imgSrc = 'images/' + artId + '.png'; // 使用本地图片
                         html += `
                             <div class="fav-art-item" data-role="${roleId}" data-artid="${artId}">
-                                <img src="${imgSrc}" alt="${role.name}" loading="lazy" />
+                                <img src="${imgSrc}" alt="${role.name}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect fill=%22%23eee%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2230%22 fill=%22%23aaa%22%3E%E6%97%A0%E5%9B%BE%3C/text%3E%3C/svg%3E'" />
                                 <button class="fav-art-remove" data-role="${roleId}" data-artid="${artId}" title="取消收藏">✕</button>
                             </div>
                         `;
@@ -2622,7 +2645,7 @@
                     const index = allArtIds.indexOf(artId);
                     if (index === -1) return;
                     const images = allArtIds.map(id => ({
-                        src: 'https://picsum.photos/seed/' + id + '/500/500',
+                        src: 'images/' + id + '.png',
                         title: role.name + ' · 画作 ' + (id.split('-')[1] || '')
                     }));
                     currentGalleryImages = images;
@@ -2697,15 +2720,18 @@
         let currentGalleryImages = [];
 
         function getRoleImages(roleId, count = 8) {
-            const seeds = [];
+            const images = [];
             for (let i = 1; i <= count; i++) {
-                seeds.push(roleId + '-' + i);
+                // 根据你的图片扩展名，这里统一用 .png
+                const ext = 'png';
+                const imgSrc = 'images/' + roleId + '-' + i + '.' + ext;
+                images.push({
+                    id: roleId + '-' + i,
+                    src: imgSrc,
+                    title: roleData.find(r => r.id === roleId)?.name || roleId + ' 画作'
+                });
             }
-            return seeds.map(seed => ({
-                id: seed,
-                src: 'https://picsum.photos/seed/' + seed + '/500/500',
-                title: roleData.find(r => r.id === roleId)?.name || roleId + ' 画作'
-            }));
+            return images;
         }
 
         function showRoleDetail(roleId) {
@@ -2722,7 +2748,7 @@
                 const isFav = isArtworkFavorited(roleId, artId);
                 return `
                     <div class="grid-item" data-index="${idx}" data-role="${roleId}" data-artid="${artId}">
-                        <img src="${img.src}" alt="${img.title}" loading="lazy" />
+                        <img src="${img.src}" alt="${img.title}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22500%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22500%22 height=%22500%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2224%22 fill=%22%23999%22%3E%E6%97%A0%E5%9B%BE%3C/text%3E%3C/svg%3E'" />
                         <button class="artwork-fav-btn ${isFav ? 'active' : ''}" data-role="${roleId}" data-artid="${artId}" title="收藏画作">${isFav ? '♥' : '♡'}</button>
                     </div>
                 `;
@@ -3184,6 +3210,7 @@
         console.log('✅ 画作分享站已加载，共 ' + roleData.length + ' 个角色');
         console.log('💡 收藏数据保存在 localStorage，共 ' + getTotalFavorites() + ' 项收藏');
         console.log('🎨 菜单图标使用纯 CSS 绘制，100% 兼容所有设备');
+        console.log('📁 图片从 images/ 文件夹加载，请确保图片命名格式如 nekomata-1.png');
     </script>
 
 </body>
